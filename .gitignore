@@ -1,0 +1,12 @@
+# Dirs
+node_modules/
+dist/
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Cache
+.eslintcache
+.stylelintcache

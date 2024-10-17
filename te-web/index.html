@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="loader">
+        <div class="loader-element"></div>
+        加载中...
+      </div>
+      <style>
+        body {
+          margin: 0;
+        }
+        .loader {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          width: 100vw;
+          overflow: hidden;
+          background-color: antiquewhite;
+        }
+        .loader-element {
+          width: 55px;
+          margin-bottom: 16px;
+          aspect-ratio: 1;
+          --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #4580df 0);
+          --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #4580df 0);
+          background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+          background-size: 25px 25px;
+          background-repeat: no-repeat;
+          animation: l7 1.5s infinite;
+        }
+        @keyframes l7 {
+          0% {
+            background-position:
+              0 0,
+              0 100%,
+              100% 100%;
+          }
+          25% {
+            background-position:
+              100% 0,
+              0 100%,
+              100% 100%;
+          }
+          50% {
+            background-position:
+              100% 0,
+              0 0,
+              100% 100%;
+          }
+          75% {
+            background-position:
+              100% 0,
+              0 0,
+              0 100%;
+          }
+          100% {
+            background-position:
+              100% 100%,
+              0 0,
+              0 100%;
+          }
+        }
+      </style>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
