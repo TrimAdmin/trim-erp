@@ -7,6 +7,12 @@ dist/
 !.vscode/settings.json
 !.vscode/extensions.json
 
+# IDEA
+.idea
+!.idea/jsLinters/eslint.xml
+!.idea/stylesheetLinters/stylelint.xml
+!.idea/inspectionProfiles/Project_Default.xml
+
 # Cache
 .eslintcache
 .stylelintcache

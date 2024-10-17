@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs'
 import antfu from '@antfu/eslint-config'
 
-const fileUrl = new URL('./te-web/.eslintrc-auto-import.json', import.meta.url)
-const autoImport = JSON.parse(readFileSync(fileUrl))
+const webFileUrl = new URL('./te-web/.eslintrc-auto-import.json', import.meta.url)
+const webAutoImport = JSON.parse(readFileSync(webFileUrl))
 
 export default antfu({
   typescript: true,
@@ -11,6 +11,7 @@ export default antfu({
   jsonc: true,
   jsx: true,
   unocss: true,
+  markdown: true,
   stylistic: {
     indent: 2,
     quotes: 'single',
@@ -51,5 +52,5 @@ export default antfu({
   ignores: ['node_modules', 'dist'],
 }, {
   files: ['./te-web/**/*.{ts,tsx,js,jsx,vue}'],
-  languageOptions: autoImport,
+  languageOptions: webAutoImport,
 })
