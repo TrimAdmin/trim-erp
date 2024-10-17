@@ -1,7 +1,12 @@
 import { toMerged } from 'es-toolkit'
+import { GlobalThemeOverrides } from 'naive-ui'
 import basicTheme from './basic'
 
+const themes = import.meta.glob<{ default: GlobalThemeOverrides }>(['./*.ts', '!./index.ts', '!./basic.ts'], {
+  eager: true,
+})
+
 export async function getThemeOverrides(name: string) {
-  const theme = await import(`./${name ?? 'blue'}.ts`)
-  return toMerged(basicTheme, theme?.default)
+  const theme = themes[`./${name ?? 'blue'}.ts`]?.default
+  return toMerged(basicTheme, theme)
 }
