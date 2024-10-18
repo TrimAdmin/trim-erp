@@ -11,6 +11,7 @@ meta:
 
 <template>
   <SwitchLocale />
+  {{ $t('common.test') }}
 </template>
 
 <style lang="scss" scoped>
