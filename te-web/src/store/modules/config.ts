@@ -1,3 +1,4 @@
+import { TrimConfig } from '#/trim-config'
 import trimConfig from '@/trim-config'
 import { useThemeStoreHook } from '..'
 
@@ -9,9 +10,15 @@ const useConfigStore = defineStore('config', () => {
     useThemeStoreHook().updateThemeOverrides()
   }
 
+  function changeLocale(lang: TrimConfig['locale']) {
+    config.value.locale = lang
+    useLocale().locale.value = lang as string
+  }
+
   return {
     config,
     changeDarkMode,
+    changeLocale,
   }
 }, {
   persist: {

@@ -314,6 +314,7 @@
     "useNotification": true,
     "mitter": true,
     "useMitt": true,
-    "useModal": true
+    "useModal": true,
+    "useLocale": true
   }
 }

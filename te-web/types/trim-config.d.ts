@@ -1,7 +1,8 @@
-import { themeList } from '@/constants/system'
+import { localeList, themeList } from '@/constants/system'
 
 export interface TrimConfig {
   theme: Theme
+  locale: typeof localeList[number]
 }
 
 export type TrimUserConfig = Partial<TrimConfig>

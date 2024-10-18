@@ -10,7 +10,7 @@ meta:
 </script>
 
 <template>
-  Home
+  <SwitchLocale />
 </template>
 
 <style lang="scss" scoped>

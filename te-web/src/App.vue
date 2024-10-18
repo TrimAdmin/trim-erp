@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import {
   darkTheme,
+  dateEnUS,
   dateZhCN,
+  dateZhTW,
+  enUS,
   lightTheme,
   zhCN,
+  zhTW,
 } from 'naive-ui'
 import { useConfigStore, useThemeStore } from './store'
+
+const localeObj = {
+  zhCN: [zhCN, dateZhCN],
+  zhTW: [zhTW, dateZhTW],
+  enUS: [enUS, dateEnUS],
+} as const
 
 const themeStore = useThemeStore()
 const configStore = useConfigStore()
@@ -19,11 +29,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <n-config-provider v-if="isReady && themeStore.themeOverrides" namespace="te" :locale="zhCN" :date-locale="dateZhCN" :theme-overrides="themeStore.themeOverrides" :theme="configStore.config.theme.darkMode ? darkTheme : lightTheme" abstract>
+  <n-config-provider v-if="isReady && themeStore.themeOverrides" namespace="te" :locale="localeObj[configStore.config.locale][0]" :date-locale="localeObj[configStore.config.locale][1]" :theme-overrides="themeStore.themeOverrides" :theme="configStore.config.theme.darkMode ? darkTheme : lightTheme" abstract>
     <n-global-style />
-    <n-button type="primary" @click="configStore.changeDarkMode">
-      test
-    </n-button>
     <RouterView />
   </n-config-provider>
 </template>

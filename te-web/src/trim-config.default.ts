@@ -5,6 +5,7 @@ const defaultConfig: TrimConfig = {
     name: 'antd',
     darkMode: false,
   },
+  locale: 'zhCN',
 }
 
 export default defaultConfig
