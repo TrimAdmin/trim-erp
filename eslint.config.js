@@ -5,13 +5,32 @@ const webFileUrl = new URL('./te-web/.eslintrc-auto-import.json', import.meta.ur
 const webAutoImport = JSON.parse(readFileSync(webFileUrl))
 
 export default antfu({
-  typescript: true,
+  typescript: {
+    overrides: {
+      'ts/consistent-type-imports': 'off',
+    },
+  },
   javascript: true,
-  vue: true,
+  vue: {
+    overrides: {
+      'vue/block-order': ['error', {
+        order: [
+          'route',
+          'script',
+          'template',
+          'style',
+        ],
+      }],
+    },
+  },
   jsonc: true,
   jsx: true,
   unocss: true,
   markdown: true,
+  formatters: {
+    css: 'prettier',
+    markdown: 'prettier',
+  },
   stylistic: {
     indent: 2,
     quotes: 'single',
@@ -20,7 +39,6 @@ export default antfu({
     overrides: {
       'style/comma-dangle': ['error', 'always-multiline'],
       'style/curly-newline': ['error', 'always'],
-      'ts/consistent-type-imports': 'off',
       'style/arrow-parens': ['error', 'always'],
       'antfu/consistent-list-newline': ['error', {
         ArrayExpression: true,
@@ -35,7 +53,7 @@ export default antfu({
         },
         ObjectPattern: {
           multiline: true,
-          minProperties: 1,
+          minProperties: 3,
         },
         ImportDeclaration: {
           multiline: true,
@@ -46,6 +64,7 @@ export default antfu({
           minProperties: 3,
         },
       }],
+      'no-console': ['off'],
     },
   },
 }, {
@@ -53,4 +72,7 @@ export default antfu({
 }, {
   files: ['./te-web/**/*.{ts,tsx,js,jsx,vue}'],
   languageOptions: webAutoImport,
+  settings: {
+    'import/core-modules': ['vue-router/auto-routes'],
+  },
 })

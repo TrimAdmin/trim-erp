@@ -15,7 +15,7 @@
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
     },
-    "types": ["unplugin-icons/types/vue", "naive-ui/volar"],
+    "types": ["unplugin-icons/types/vue", "naive-ui/volar", "vite-plugin-vue-layouts/client"],
     "allowImportingTsExtensions": true,
 
     /* Linting */

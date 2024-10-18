@@ -311,6 +311,9 @@
     "useDialog": true,
     "useLoadingBar": true,
     "useMessage": true,
-    "useNotification": true
+    "useNotification": true,
+    "mitter": true,
+    "useMitt": true,
+    "useModal": true
   }
 }

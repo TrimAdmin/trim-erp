@@ -1,14 +1,16 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
-import { plugins } from './vite/plugins'
+import { vitePlugins } from './vite/plugins'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins,
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      '#': resolve(__dirname, 'types'),
+export default defineConfig(({ mode }) => {
+  return {
+    plugins: vitePlugins(mode),
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+        '#': resolve(__dirname, 'types'),
+      },
     },
-  },
+  }
 })

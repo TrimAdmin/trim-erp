@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "stylelint.vscode-stylelint",
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint",
+    "wallabyjs.quokka-vscode",
+    "kamikillerto.vscode-colorize",
+    "wallabyjs.console-ninja",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "lokalise.i18n-ally",
+    "antfu.iconify",
+    "mariusalchimavicius.json-to-ts",
+    "prisma.prisma",
+    "syler.sass-indented",
+    "antfu.unocss"
+  ]
+}
