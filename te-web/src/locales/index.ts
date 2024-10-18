@@ -1,5 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
+// 自动导入国际化
 const messages = Object.entries(import.meta.glob<{ default: Record<string, object> }>('./lang/**/*.json', {
   eager: true,
 })).map(([key, value]) => {

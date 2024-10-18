@@ -2,9 +2,10 @@ import { DataLoaderPlugin } from 'unplugin-vue-router/data-loaders'
 import { createApp } from 'vue'
 import App from './App.vue'
 import i18n from './locales'
+import VxeUITable from './plugins/vxe-table'
 import router from './router'
-
 import pinia from './store'
+
 import '@/styles/index.scss'
 import 'uno.css'
 import 'vfonts/Inter.css'
@@ -17,5 +18,6 @@ app.use(DataLoaderPlugin, {
 })
 app.use(router)
 app.use(i18n)
+app.use(VxeUITable)
 
 app.mount('#app')

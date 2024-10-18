@@ -38,14 +38,7 @@ export function vitePlugins(mode: string): UserConfig['plugins'] {
     }),
     AutoImport({
       dts: './types/generated/auto-import.d.ts',
-      imports: ['pinia', 'vue', '@vueuse/core', VueRouterAutoImports, {
-        'naive-ui': [
-          'useDialog',
-          'useMessage',
-          'useNotification',
-          'useLoadingBar',
-        ],
-      }],
+      imports: ['pinia', 'vue', '@vueuse/core', VueRouterAutoImports],
       dirs: ['./src/utils', './src/hooks', './src/composables'],
       eslintrc: {
         enabled: true,
