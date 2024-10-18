@@ -68,7 +68,7 @@ export default antfu({
     },
   },
 }, {
-  ignores: ['node_modules', 'dist'],
+  ignores: ['node_modules', 'dist', './te-web/types/generated/*.ts', '.env*'],
 }, {
   files: ['./te-web/**/*.{ts,tsx,js,jsx,vue}'],
   languageOptions: webAutoImport,

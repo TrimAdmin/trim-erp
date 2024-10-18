@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --mode dev",
+    "dev": "vite --mode dev --host",
     "build:test": "vue-tsc -b && vite build --mode test",
     "build": "vue-tsc -b && vite build --mode prod",
     "preview": "vite preview"
