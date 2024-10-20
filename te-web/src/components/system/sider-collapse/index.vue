@@ -5,8 +5,8 @@ const configStore = useConfigStore()
 </script>
 
 <template>
-  <n-button circle quaternary>
-    <i :class="configStore.config.theme.siderCollapsed ? 'i-ant-design:menu-unfold-outlined' : 'i-ant-design:menu-fold-outlined'" @click="configStore.changeSiderCollapsed" />
+  <n-button circle quaternary @click="configStore.changeSiderCollapsed">
+    <i :class="configStore.config.theme.siderCollapsed ? 'i-ant-design:menu-unfold-outlined' : 'i-ant-design:menu-fold-outlined'" />
   </n-button>
 </template>
 
