@@ -21,6 +21,7 @@ declare module 'vue' {
     NSelect: typeof import('naive-ui')['NSelect']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SiderCollapse: typeof import('./../../src/components/system/sider-collapse/index.vue')['default']
     SwitchLocale: typeof import('./../../src/components/system/switch-locale/index.vue')['default']
     ToggleDark: typeof import('./../../src/components/system/toggle-dark/index.vue')['default']
   }

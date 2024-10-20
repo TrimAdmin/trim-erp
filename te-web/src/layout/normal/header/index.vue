@@ -5,7 +5,9 @@
   <n-layout-header
     class="h-header flex-bc px-4 shadow-md"
   >
-    <div />
+    <div>
+      <sider-collapse />
+    </div>
     <div>
       <toggle-dark />
       <switch-locale />
