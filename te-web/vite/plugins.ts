@@ -12,7 +12,6 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import vueRouter from 'unplugin-vue-router/vite'
 import { loadEnv, UserConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import Layouts from 'vite-plugin-vue-layouts'
 
 export function vitePlugins(mode: string): UserConfig['plugins'] {
   const env = loadEnv(mode, process.cwd(), '')
@@ -24,11 +23,6 @@ export function vitePlugins(mode: string): UserConfig['plugins'] {
       routesFolder: ['src/pages'],
       extensions: ['.vue', '.tsx'],
       routeBlockLang: 'yaml',
-    }),
-    Layouts({
-      layoutsDirs: 'src/layout',
-      pagesDirs: 'src/pages',
-      defaultLayout: 'default',
     }),
     vue(),
     vueJsx(),

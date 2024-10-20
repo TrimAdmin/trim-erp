@@ -1,9 +1,8 @@
 <route lang="yaml">
-name: Login
+name: SystemUser
 meta:
-  title: 登录
-  public: true
-  hideMenu: true
+  title: 用户管理
+  icon: 'i-ep:user'
 </route>
 
 <script setup lang="ts">
@@ -11,7 +10,9 @@ meta:
 </script>
 
 <template>
-  <div>login</div>
+  <div>
+    user
+  </div>
 </template>
 
 <style lang="scss" scoped>

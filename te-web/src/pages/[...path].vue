@@ -3,6 +3,7 @@ name: 404
 meta:
   title: 404 Not Found
   public: true
+  hideMenu: true
 </route>
 
 <script setup lang="ts">

@@ -17,4 +17,52 @@ body,
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --trim-loading-mask: rgb(255 255 255 / 60%);
+
+  // 视图过渡动画
+  &::view-transition-image-pair(root) {
+    isolation: auto;
+  }
+
+  &::view-transition-old(root),
+  &::view-transition-new(root) {
+    mix-blend-mode: normal;
+    animation: none;
+  }
+
+  // 切换为暗色模式时展示新视图向外展开动画
+  &::view-transition-new(root) {
+    z-index: 9999;
+  }
+
+  &::view-transition-old(root) {
+    z-index: 9998;
+  }
+
+  &.dark {
+    // 加载背景蒙层色
+    --trim-loading-mask: rgb(0 0 0 / 60%);
+
+    // 切换为亮色模式时展示旧视图向内收缩动画
+    &::view-transition-old(root) {
+      z-index: 9999;
+    }
+
+    &::view-transition-new(root) {
+      z-index: 9998;
+    }
+  }
+}
+
+.h-header {
+  height: var(--trim-header-height);
+}
+
+.w-sider {
+  height: var(--trim-sider-width);
 }

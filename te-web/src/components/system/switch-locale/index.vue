@@ -25,7 +25,9 @@ const options = computed<DropdownOption[]>(() => [
 
 <template>
   <n-dropdown :options trigger="click" @select="configStore.changeLocale">
-    <i class="i-ri:translate-2" />
+    <n-button circle quaternary>
+      <i class="i-ri:translate-2" />
+    </n-button>
   </n-dropdown>
 </template>
 

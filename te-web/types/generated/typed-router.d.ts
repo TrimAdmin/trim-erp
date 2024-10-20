@@ -21,5 +21,7 @@ declare module 'vue-router/auto-routes' {
     'Home': RouteRecordInfo<'Home', '/', Record<never, never>, Record<never, never>>,
     '404': RouteRecordInfo<'404', '/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     'Login': RouteRecordInfo<'Login', '/login', Record<never, never>, Record<never, never>>,
+    'System': RouteRecordInfo<'System', '/system', Record<never, never>, Record<never, never>>,
+    'SystemUser': RouteRecordInfo<'SystemUser', '/system/user', Record<never, never>, Record<never, never>>,
   }
 }

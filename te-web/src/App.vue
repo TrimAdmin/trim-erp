@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Layout from '@/layout/index.vue'
 import {
   darkTheme,
   dateEnUS,
@@ -31,7 +32,7 @@ onMounted(async () => {
 <template>
   <n-config-provider v-if="isReady && themeStore.themeOverrides" namespace="te" :locale="localeObj[configStore.config.locale][0]" :date-locale="localeObj[configStore.config.locale][1]" :theme-overrides="themeStore.themeOverrides" :theme="configStore.config.theme.darkMode ? darkTheme : lightTheme" abstract>
     <n-global-style />
-    <RouterView />
+    <Layout />
   </n-config-provider>
 </template>
 

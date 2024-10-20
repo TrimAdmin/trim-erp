@@ -315,6 +315,7 @@
     "mitter": true,
     "useMitt": true,
     "useModal": true,
-    "useLocale": true
+    "useLocale": true,
+    "generateMenu": true
   }
 }

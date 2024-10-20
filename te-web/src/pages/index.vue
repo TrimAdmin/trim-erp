@@ -2,7 +2,7 @@
 name: Home
 meta:
   title: 首页
-  public: true
+  icon: 'i-ant-design:home-outlined'
 </route>
 
 <script setup lang="ts">
