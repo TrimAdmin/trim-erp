@@ -15,6 +15,10 @@ const useConfigStore = defineStore('config', () => {
     useThemeStoreHook().updateThemeOverrides()
   }
 
+  function changeSiderCollapsed() {
+    config.value.theme.siderCollapsed = !config.value.theme.siderCollapsed
+  }
+
   function changeLocale(lang: TrimConfig['locale']) {
     config.value.locale = lang
     useLocale().locale.value = lang as string
@@ -24,6 +28,7 @@ const useConfigStore = defineStore('config', () => {
     config,
     changeDarkMode,
     changeLocale,
+    changeSiderCollapsed,
   }
 }, {
   persist: {

@@ -8,7 +8,7 @@ import {
 import { useConfigStoreHook } from '..'
 
 const useThemeStore = defineStore('theme', () => {
-  const themeOverrides = ref<GlobalThemeOverrides>()
+  const themeOverrides = ref<GlobalThemeOverrides>({})
 
   async function updateThemeOverrides() {
     const { name, darkMode } = useConfigStoreHook().config.theme

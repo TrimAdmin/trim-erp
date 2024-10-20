@@ -7,6 +7,8 @@ const defaultConfig: TrimConfig = {
     layout: 'normal',
     siderWidth: 200,
     headerHeight: 48,
+    siderCollapsed: false,
+    contentScrollMode: 'content',
   },
   locale: 'zhCN',
 }

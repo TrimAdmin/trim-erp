@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { usePermissionStore } from '@/store'
+import { useConfigStore, usePermissionStore } from '@/store'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
 const permissionStore = usePermissionStore()
+const configStore = useConfigStore()
 const router = useRouter()
 
-function onMenuSelect(name: keyof RouteNamedMap) {
+function onMenuChange(name: keyof RouteNamedMap) {
   router.push({
     name,
   })
@@ -15,9 +16,13 @@ function onMenuSelect(name: keyof RouteNamedMap) {
 <template>
   <n-menu
     accordion
-    :options="permissionStore.menu" :indent="24"
+    :options="permissionStore.menu"
+    :indent="24"
+    :collapsed="configStore.config.theme.siderCollapsed"
     :value="$route.name"
-    @select="onMenuSelect"
+    :collapsed-width="64"
+    :inverted="configStore.config.theme.darkMode"
+    @update-value="onMenuChange"
   />
 </template>
 

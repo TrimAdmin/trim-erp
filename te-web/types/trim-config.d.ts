@@ -17,4 +17,6 @@ interface Theme {
   layout: typeof layoutList[number]
   siderWidth: number
   headerHeight: number
+  siderCollapsed: boolean
+  contentScrollMode: 'page' | 'content'
 }
