@@ -39,6 +39,7 @@ declare global {
   const generateFlatAuthList: typeof import('../../src/utils/router')['generateFlatAuthList']
   const generateMenu: typeof import('../../src/utils/router')['generateMenu']
   const getActivePinia: typeof import('pinia')['getActivePinia']
+  const getBreadcrumbList: typeof import('../../src/utils/router')['getBreadcrumbList']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']

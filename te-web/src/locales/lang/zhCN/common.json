@@ -1,3 +1,7 @@
 {
-  "test": "测试"
+  "fold-menu": "收起菜单",
+  "unfold-menu": "展开菜单",
+  "dark-mode": "暗色模式",
+  "light-mode": "亮色模式",
+  "switch-locale": "切换语言"
 }

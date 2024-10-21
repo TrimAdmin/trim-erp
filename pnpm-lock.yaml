@@ -72,9 +72,6 @@ importers:
       pinia:
         specifier: ^2.2.4
         version: 2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3))
-      pinia-plugin-persistedstate:
-        specifier: ^4.1.1
-        version: 4.1.1(pinia@2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3)))(rollup@4.24.0)(webpack-sources@3.2.3)
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
@@ -2592,9 +2589,6 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  deep-pick-omit@1.2.1:
-    resolution: {integrity: sha512-2J6Kc/m3irCeqVG42T+SaUMesaK7oGWaedGnQQK/+O0gYc+2SP5bKh/KKTE7d7SJ+GCA9UUE1GRzh6oDe0EnGw==}
-
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -4483,17 +4477,6 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  pinia-plugin-persistedstate@4.1.1:
-    resolution: {integrity: sha512-fUiUsbfBetGUZzX28z+ImAZw7FDXzwRrk+fN+ljF5OhQMhsSYfYeUzI9FLLtpjekYbfFHWvJiECkLI60RIuiPA==}
-    peerDependencies:
-      '@pinia/nuxt': '>=0.5.0'
-      pinia: '>=2.0.0'
-    peerDependenciesMeta:
-      '@pinia/nuxt':
-        optional: true
-      pinia:
-        optional: true
-
   pinia@2.2.4:
     resolution: {integrity: sha512-K7ZhpMY9iJ9ShTC0cR2+PnxdQRuwVIsXDO/WIEV/RnMC/vmSoKDTKW/exNQYPI+4ij10UjXqdNiEHwn47McANQ==}
     peerDependencies:
@@ -6289,7 +6272,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/standalone@7.25.8': {}
+  '@babel/standalone@7.25.8':
+    optional: true
 
   '@babel/template@7.25.7':
     dependencies:
@@ -7067,6 +7051,7 @@ snapshots:
       - rollup
       - supports-color
       - webpack-sources
+    optional: true
 
   '@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3)':
     dependencies:
@@ -7086,6 +7071,7 @@ snapshots:
       - rollup
       - supports-color
       - webpack-sources
+    optional: true
 
   '@nuxtjs/opencollective@0.3.2':
     dependencies:
@@ -7241,7 +7227,8 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@sindresorhus/merge-streams@2.3.0': {}
+  '@sindresorhus/merge-streams@2.3.0':
+    optional: true
 
   '@sinonjs/commons@3.0.1':
     dependencies:
@@ -8220,6 +8207,7 @@ snapshots:
       perfect-debounce: 1.0.0
       pkg-types: 1.2.1
       rc9: 2.1.2
+    optional: true
 
   cac@6.7.14: {}
 
@@ -8283,7 +8271,8 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
 
-  chownr@2.0.0: {}
+  chownr@2.0.0:
+    optional: true
 
   chrome-trace-event@1.0.4: {}
 
@@ -8294,6 +8283,7 @@ snapshots:
   citty@0.1.6:
     dependencies:
       consola: 3.2.3
+    optional: true
 
   cjs-module-lexer@1.4.1: {}
 
@@ -8381,7 +8371,8 @@ snapshots:
       array-ify: 1.0.0
       dot-prop: 5.3.0
 
-  compatx@0.1.8: {}
+  compatx@0.1.8:
+    optional: true
 
   component-emitter@1.3.1: {}
 
@@ -8622,8 +8613,6 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  deep-pick-omit@1.2.1: {}
-
   deepmerge@4.3.1: {}
 
   default-browser-id@5.0.0: {}
@@ -8706,7 +8695,8 @@ snapshots:
     dependencies:
       is-obj: 2.0.0
 
-  dotenv@16.4.5: {}
+  dotenv@16.4.5:
+    optional: true
 
   duplexer@0.1.2: {}
 
@@ -9365,6 +9355,7 @@ snapshots:
   fs-minipass@2.1.0:
     dependencies:
       minipass: 3.3.6
+    optional: true
 
   fs-monkey@1.0.6: {}
 
@@ -9411,6 +9402,7 @@ snapshots:
       ohash: 1.1.4
       pathe: 1.1.2
       tar: 6.2.1
+    optional: true
 
   git-raw-commits@4.0.0:
     dependencies:
@@ -9487,6 +9479,7 @@ snapshots:
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
+    optional: true
 
   globjoin@0.1.4: {}
 
@@ -9529,7 +9522,8 @@ snapshots:
 
   has-symbols@1.0.3: {}
 
-  hash-sum@2.0.0: {}
+  hash-sum@2.0.0:
+    optional: true
 
   hasown@2.0.2:
     dependencies:
@@ -10100,7 +10094,8 @@ snapshots:
 
   jiti@2.0.0-beta.3: {}
 
-  jiti@2.3.3: {}
+  jiti@2.3.3:
+    optional: true
 
   js-tokens@4.0.0: {}
 
@@ -10160,9 +10155,11 @@ snapshots:
 
   kleur@3.0.3: {}
 
-  klona@2.0.6: {}
+  klona@2.0.6:
+    optional: true
 
-  knitwork@1.1.0: {}
+  knitwork@1.1.0:
+    optional: true
 
   known-css-properties@0.34.0: {}
 
@@ -10662,8 +10659,10 @@ snapshots:
   minipass@3.3.6:
     dependencies:
       yallist: 4.0.0
+    optional: true
 
-  minipass@5.0.0: {}
+  minipass@5.0.0:
+    optional: true
 
   minipass@7.1.2: {}
 
@@ -10671,6 +10670,7 @@ snapshots:
     dependencies:
       minipass: 3.3.6
       yallist: 4.0.0
+    optional: true
 
   mitt@3.0.1: {}
 
@@ -10678,7 +10678,8 @@ snapshots:
     dependencies:
       minimist: 1.2.8
 
-  mkdirp@1.0.4: {}
+  mkdirp@1.0.4:
+    optional: true
 
   mlly@1.7.2:
     dependencies:
@@ -10687,7 +10688,8 @@ snapshots:
       pkg-types: 1.2.1
       ufo: 1.5.4
 
-  mri@1.2.0: {}
+  mri@1.2.0:
+    optional: true
 
   mrmime@2.0.0: {}
 
@@ -10793,6 +10795,7 @@ snapshots:
       pathe: 1.1.2
       pkg-types: 1.2.1
       ufo: 1.5.4
+    optional: true
 
   object-assign@4.1.1: {}
 
@@ -10931,7 +10934,8 @@ snapshots:
 
   path-type@4.0.0: {}
 
-  path-type@5.0.0: {}
+  path-type@5.0.0:
+    optional: true
 
   pathe@1.1.2: {}
 
@@ -10946,20 +10950,6 @@ snapshots:
   picomatch@4.0.2: {}
 
   pidtree@0.6.0: {}
-
-  pinia-plugin-persistedstate@4.1.1(pinia@2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3)))(rollup@4.24.0)(webpack-sources@3.2.3):
-    dependencies:
-      '@nuxt/kit': 3.13.2(rollup@4.24.0)(webpack-sources@3.2.3)
-      deep-pick-omit: 1.2.1
-      defu: 6.1.4
-      destr: 2.0.3
-    optionalDependencies:
-      pinia: 2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3))
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
-      - webpack-sources
 
   pinia@2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3)):
     dependencies:
@@ -11233,6 +11223,7 @@ snapshots:
     dependencies:
       defu: 6.1.4
       destr: 2.0.3
+    optional: true
 
   react-is@18.3.1: {}
 
@@ -11468,7 +11459,8 @@ snapshots:
 
   slash@3.0.0: {}
 
-  slash@5.1.0: {}
+  slash@5.1.0:
+    optional: true
 
   slashes@3.0.12: {}
 
@@ -11537,7 +11529,8 @@ snapshots:
 
   statuses@2.0.1: {}
 
-  std-env@3.7.0: {}
+  std-env@3.7.0:
+    optional: true
 
   streamsearch@1.1.0: {}
 
@@ -11803,6 +11796,7 @@ snapshots:
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0
+    optional: true
 
   terser-webpack-plugin@5.3.10(esbuild@0.23.1)(webpack@5.94.0(esbuild@0.23.1)):
     dependencies:
@@ -11991,6 +11985,7 @@ snapshots:
       unplugin: 1.14.1(webpack-sources@3.2.3)
     transitivePeerDependencies:
       - webpack-sources
+    optional: true
 
   undici-types@6.19.8: {}
 
@@ -12188,6 +12183,7 @@ snapshots:
       scule: 1.3.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   update-browserslist-db@1.1.1(browserslist@4.24.0):
     dependencies:
@@ -12471,7 +12467,8 @@ snapshots:
 
   yallist@3.1.1: {}
 
-  yallist@4.0.0: {}
+  yallist@4.0.0:
+    optional: true
 
   yaml-eslint-parser@1.2.3:
     dependencies:

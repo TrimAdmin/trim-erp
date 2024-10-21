@@ -22,7 +22,6 @@ const useConfigStore = defineStore('config', () => {
   function changeLocale(lang: TrimConfig['locale']) {
     config.value.locale = lang
     useLocale().locale.value = lang as string
-    console.log(useLocale().locale.value)
   }
 
   changeLocale(config.value.locale)

@@ -1,11 +1,9 @@
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import useConfigStore from './modules/config'
 import usePermissionStore from './modules/permission'
 import useTagsStore from './modules/tags'
 import useThemeStore from './modules/theme'
 
 const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
 
 export default pinia
 

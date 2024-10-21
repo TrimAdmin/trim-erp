@@ -47,13 +47,18 @@ function handleViewTransition(e: MouseEvent) {
 </script>
 
 <template>
-  <n-button
-    circle
-    quaternary
-    @click="handleViewTransition"
-  >
-    <i :class="configStore.config.theme.darkMode ? 'i-ant-design:sun-outlined' : 'i-ant-design:moon-outlined'" />
-  </n-button>
+  <n-tooltip>
+    {{ configStore.config.theme.darkMode ? $t('common.light-mode') : $t('common.dark-mode') }}
+    <template #trigger>
+      <n-button
+        circle
+        quaternary
+        @click="handleViewTransition"
+      >
+        <i :class="configStore.config.theme.darkMode ? 'i-ant-design:sun-outlined' : 'i-ant-design:moon-outlined'" />
+      </n-button>
+    </template>
+  </n-tooltip>
 </template>
 
 <style lang="scss" scoped></style>
