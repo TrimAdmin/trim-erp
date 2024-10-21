@@ -316,6 +316,7 @@
     "useMitt": true,
     "useModal": true,
     "useLocale": true,
-    "generateMenu": true
+    "generateMenu": true,
+    "generateFlatAuthList": true
   }
 }

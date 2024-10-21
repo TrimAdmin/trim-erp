@@ -2,6 +2,7 @@
 name: Home
 meta:
   title: 首页
+  titleI18n: 'menu.home'
   icon: 'i-ant-design:home-outlined'
 </route>
 

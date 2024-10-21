@@ -3,7 +3,7 @@ import trimConfig from '@/trim-config'
 import { useThemeStoreHook } from '..'
 
 const useConfigStore = defineStore('config', () => {
-  const config = ref(trimConfig)
+  const config = useLocalStorage('trim__config', trimConfig)
 
   watchPostEffect(() => {
     document.documentElement.style.setProperty('--trim-header-height', `${config.value.theme.headerHeight}px`)
@@ -22,7 +22,10 @@ const useConfigStore = defineStore('config', () => {
   function changeLocale(lang: TrimConfig['locale']) {
     config.value.locale = lang
     useLocale().locale.value = lang as string
+    console.log(useLocale().locale.value)
   }
+
+  changeLocale(config.value.locale)
 
   return {
     config,
@@ -30,11 +33,6 @@ const useConfigStore = defineStore('config', () => {
     changeLocale,
     changeSiderCollapsed,
   }
-}, {
-  persist: {
-    key: 'trim__config',
-    storage: localStorage,
-  },
-})
+}, {})
 
 export default useConfigStore

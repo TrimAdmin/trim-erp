@@ -22,8 +22,9 @@ routes.forEach((route) => {
 })
 
 usePermissionStoreHook().menu = generateMenu(routes)
+usePermissionStoreHook().permissionList = generateFlatAuthList(routes)
 
-console.log('generated menu', usePermissionStoreHook().menu)
+console.log('generated menu', usePermissionStoreHook().permissionList)
 
 const router = createRouter({
   routes,
