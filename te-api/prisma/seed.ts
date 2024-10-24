@@ -7,7 +7,7 @@ async function main() {
     data: {
       id: 1,
       name: '管理员',
-      permission: ['*'],
+      permission: ['*:*'],
     },
   })
   await prisma.sysUser.create({

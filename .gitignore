@@ -16,3 +16,6 @@ dist/
 # Cache
 .eslintcache
 .stylelintcache
+
+# env
+.env.local
