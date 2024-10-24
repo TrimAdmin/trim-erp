@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { CustomPrismaService } from 'nestjs-prisma'
-import { ExtendedPrismaClient } from 'src/modules/common/prisma/prisma.extension'
+import { ExtendedPrismaClient } from 'src/prisma/prisma.extension'
+import { formatPagination } from 'src/utils/pagination'
 
 @Injectable()
 export class AuthService {
@@ -11,6 +12,9 @@ export class AuthService {
   }
 
   async getUser() {
-    return this.prisma.client.sysDictType.findMany()
+    return formatPagination(await this.prisma.client.sysDictType.paginate({}).withPages({
+      limit: 10,
+      page: 1,
+    }))
   }
 }

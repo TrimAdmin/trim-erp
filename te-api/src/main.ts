@@ -1,6 +1,11 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common'
-import { NestFactory } from '@nestjs/core'
+import {
+  HttpStatus,
+  INestApplication,
+  ValidationPipe,
+} from '@nestjs/common'
+import { HttpAdapterHost, NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import { PrismaClientExceptionFilter } from 'nestjs-prisma'
 import { AppModule } from './app.module'
 
 function initSwagger(app: INestApplication) {
@@ -15,6 +20,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   // 启用全局校验拦截
   app.useGlobalPipes(new ValidationPipe())
+  // 过滤prisma
+  const { httpAdapter } = app.get(HttpAdapterHost)
+  app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter, {
+    P2000: HttpStatus.BAD_REQUEST,
+    P2002: HttpStatus.CONFLICT,
+    P2025: HttpStatus.NOT_FOUND,
+  }))
   // 初始化swagger
   initSwagger(app)
   await app.listen(5000)
