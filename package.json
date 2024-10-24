@@ -17,6 +17,7 @@
     "dev:api": "pnpm -C te-api start:debug",
     "lint": "eslint . --fix --cache",
     "lint:style": "stylelint **/*.{css,scss,sass,vue} --fix --cache",
+    "db:dev": "pnpm -C te-api db:dev",
     "prepare": "husky"
   },
   "dependencies": {

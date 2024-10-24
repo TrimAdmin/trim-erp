@@ -13,7 +13,124 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// 状态
 enum Status {
   ENABLED
   DISABLED
+}
+
+// 性别
+enum Sex {
+  UNKNOWN
+  MALE
+  FEMALE
+  OTHER
+}
+
+// 用户表
+model SysUser {
+  id          Int           @id @default(autoincrement())
+  createTime  DateTime      @default(now())
+  updateTime  DateTime      @default(now()) @updatedAt()
+  deleteTime  DateTime?
+  username    String        @unique
+  password    String
+  nickname    String?
+  email       String?       @unique
+  phone       String?       @unique
+  status      Status        @default(ENABLED)
+  sex         Sex           @default(UNKNOWN)
+  SysUserDept SysUserDept[]
+  SysUserRole SysUserRole[]
+
+  @@index([username, email, phone])
+  @@map("sys_user")
+}
+
+// 部门表
+model SysDept {
+  id          Int           @id @default(autoincrement())
+  createTime  DateTime      @default(now())
+  updateTime  DateTime      @default(now()) @updatedAt()
+  deleteTime  DateTime?
+  name        String
+  status      Status        @default(ENABLED)
+  SysUserDept SysUserDept[]
+
+  @@map("sys_dept")
+}
+
+// 用户部门
+model SysUserDept {
+  id         Int       @id @default(autoincrement())
+  createTime DateTime  @default(now())
+  updateTime DateTime  @default(now()) @updatedAt()
+  deleteTime DateTime?
+  userId     Int
+  user       SysUser   @relation(references: [id], fields: [userId])
+  deptId     Int
+  dept       SysDept   @relation(references: [id], fields: [deptId])
+
+  @@map("sys_user_dept")
+}
+
+// 角色表
+model SysRole {
+  id          Int           @id @default(autoincrement())
+  createTime  DateTime      @default(now())
+  updateTime  DateTime      @default(now()) @updatedAt()
+  deleteTime  DateTime?
+  name        String
+  permission  String[]      @default([])
+  remark      String?
+  status      Status        @default(ENABLED)
+  SysUserRole SysUserRole[]
+
+  @@index([name])
+  @@map("sys_role")
+}
+
+// 用户部门
+model SysUserRole {
+  id         Int       @id @default(autoincrement())
+  createTime DateTime  @default(now())
+  updateTime DateTime  @default(now()) @updatedAt()
+  deleteTime DateTime?
+  userId     Int
+  user       SysUser   @relation(references: [id], fields: [userId])
+  roleId     Int
+  role       SysRole   @relation(references: [id], fields: [roleId])
+
+  @@map("sys_user_role")
+}
+
+// 数据字典类型
+model SysDictType {
+  id          Int           @id @default(autoincrement())
+  createTime  DateTime      @default(now())
+  updateTime  DateTime      @default(now()) @updatedAt()
+  deleteTime  DateTime?
+  key         String
+  label       String
+  remark      String?
+  status      Status        @default(ENABLED)
+  SysDictData SysDictData[]
+
+  @@map("sys_dict_type")
+}
+
+// 数据字典
+model SysDictData {
+  id         Int         @id @default(autoincrement())
+  createTime DateTime    @default(now())
+  updateTime DateTime    @default(now()) @updatedAt()
+  deleteTime DateTime?
+  label      String
+  value      Int
+  remark     String?
+  status     Status      @default(ENABLED)
+  typeId     Int
+  type       SysDictType @relation(references: [id], fields: [typeId])
+
+  @@map("sys_dict_data")
 }
