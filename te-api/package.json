@@ -14,6 +14,7 @@
     "start:prod": "node dist/main",
     "db:dev": "pnpm dlx prisma migrate dev --name init",
     "db": "pnpm dlx prisma generate",
+    "db:seed": "pnpm dlx prisma db seed",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -66,5 +67,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

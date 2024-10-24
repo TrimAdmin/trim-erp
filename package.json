@@ -19,6 +19,7 @@
     "lint:style": "stylelint **/*.{css,scss,sass,vue} --fix --cache",
     "db:dev": "pnpm -C te-api db:dev",
     "db": "pnpm -C te-api db",
+    "db:seed": "pnpm -C te-api db:seed",
     "prepare": "husky"
   },
   "dependencies": {
