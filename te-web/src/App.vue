@@ -30,7 +30,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <n-config-provider v-if="isReady && themeStore.themeOverrides" namespace="te" :locale="localeObj[configStore.config.locale][0]" :date-locale="localeObj[configStore.config.locale][1]" :theme-overrides="themeStore.themeOverrides" :theme="configStore.config.theme.darkMode ? darkTheme : lightTheme" abstract>
+  <n-config-provider v-if="isReady && themeStore.themeOverrides" namespace="vxe-table--ignore-clear" :locale="localeObj[configStore.config.locale][0]" :date-locale="localeObj[configStore.config.locale][1]" :theme-overrides="themeStore.themeOverrides" :theme="configStore.config.theme.darkMode ? darkTheme : lightTheme" abstract>
     <Layout />
   </n-config-provider>
 </template>

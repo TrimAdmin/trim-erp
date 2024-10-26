@@ -1,6 +1,26 @@
-import VxeUITable from 'vxe-table'
-import 'vxe-table/lib/style.css'
+import { App } from 'vue'
+import {
+  Edit,
+  VxeColgroup,
+  VxeColumn,
+  VxeGrid,
+  VxePager,
+  VxeTable,
+  VxeToolbar,
+  VxeUI,
+} from 'vxe-table'
+import 'vxe-table/styles/all.scss'
 
-VxeUITable.setConfig({})
+VxeUI.setConfig({
+  i18n: (key, args) => useLocale().t(key, args),
+})
 
-export default VxeUITable
+export function pluginVxeTable(app: App) {
+  app.use(VxeTable)
+  app.use(VxeColgroup)
+  app.use(VxeColumn)
+  app.use(VxeGrid)
+  app.use(VxePager)
+  app.use(VxeToolbar)
+  app.use(Edit)
+}

@@ -24,8 +24,6 @@ routes.forEach((route) => {
 usePermissionStoreHook().menu = generateMenu(routes)
 usePermissionStoreHook().permissionList = generateFlatAuthList(routes)
 
-console.log('generated menu', usePermissionStoreHook().permissionList)
-
 const router = createRouter({
   routes,
   history: import.meta.env.VITE_HASH_HISTORY === 'true' ? createWebHashHistory() : createWebHistory(),

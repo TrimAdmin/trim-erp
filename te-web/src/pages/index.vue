@@ -15,9 +15,7 @@ meta:
     <SwitchLocale />
     {{ $t('common.test') }}
     <vxe-table
-      :data="[{
-        name: 1,
-      }]"
+
       :edit-config="{
         trigger: 'click',
         mode: 'row',
@@ -32,14 +30,8 @@ meta:
         }"
       >
         <template #edit="{ row }">
-          <n-select
-            v-model:value="row.name" :options="[{
-              value: 1,
-              label: '1',
-            }, {
-              value: 2,
-              label: '2',
-            }]"
+          <n-color-picker
+            v-model:value="row.name"
           />
         </template>
       </vxe-column>

@@ -1,4 +1,8 @@
+import { toMerged } from 'es-toolkit'
 import { createI18n } from 'vue-i18n'
+import enUS from 'vxe-table/lib/locale/lang/en-US'
+import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+import zhTW from 'vxe-table/lib/locale/lang/zh-TW'
 
 // 自动导入国际化
 const messages = Object.entries(import.meta.glob<{ default: Record<string, object> }>('./lang/**/*.json', {
@@ -27,7 +31,11 @@ const i18n = createI18n({
   legacy: false,
   locale: 'zhCN',
   fallbackLocale: 'zhCN',
-  messages,
+  messages: toMerged(messages, {
+    zhCN,
+    zhTW,
+    enUS,
+  }),
 })
 
 export default i18n
