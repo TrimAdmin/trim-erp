@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { compare } from 'bcrypt'
 import { flatten, uniq } from 'es-toolkit'
 import { CustomPrismaService } from 'nestjs-prisma'
 import { ExtendedPrismaClient } from 'src/prisma/prisma.extension'
@@ -30,7 +29,8 @@ export class AuthService {
     if (!user) {
       throw new HttpException('用户名错误或不存在', HttpStatus.BAD_REQUEST)
     }
-    const isSame = await compare(loginDto.password, user.password)
+    // const isSame = await compare(loginDto.password, user.password)
+    const isSame = loginDto.password === user.password
     if (!isSame) {
       throw new HttpException('密码错误', HttpStatus.BAD_REQUEST)
     }
@@ -60,7 +60,11 @@ export class AuthService {
         secret,
       })
       const user = await this.userService.findOneById(payload.sub)
-      return Promise.resolve(user)
+      const permissions = await this.getUserPermission(user.id)
+      return Promise.resolve({
+        ...user,
+        permissions,
+      })
     }
     catch (e) {
       throw new HttpException(e, HttpStatus.INTERNAL_SERVER_ERROR)

@@ -7,38 +7,33 @@ meta:
 </route>
 
 <script setup lang="ts">
-
+const {
+  gridConfig,
+  gridRef,
+} = useVxeGrid({
+  id: 'HomeTable',
+  columns: [
+    {
+      title: '姓名',
+      field: 'name',
+    },
+  ],
+  data: [
+    {
+      name: '张三',
+    },
+    {
+      name: '李四',
+    },
+  ],
+})
 </script>
 
 <template>
   <div>
     <SwitchLocale />
     {{ $t('common.test') }}
-    <vxe-table
-
-      :edit-config="{
-        trigger: 'click',
-        mode: 'row',
-      }"
-    >
-      <vxe-column title="序号" type="seq" />
-      <vxe-column
-        title="姓名" field="name" :edit-render="{
-          slots: {
-            edit: 'edit',
-          },
-        }"
-      >
-        <template #edit="{ row }">
-          <n-color-picker
-            v-model:value="row.name"
-          />
-        </template>
-      </vxe-column>
-      <vxe-column title="操作" field="operation">
-        <n-button>删除</n-button>
-      </vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridConfig" ref="gridRef" />
   </div>
 </template>
 

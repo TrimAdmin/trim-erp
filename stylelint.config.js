@@ -11,7 +11,6 @@ export default {
   extends: [
     'stylelint-config-standard-scss',
     'stylelint-config-clean-order',
-    'stylelint-prettier/recommended',
     'stylelint-config-recommended-vue/scss',
   ],
   rules: {

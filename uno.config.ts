@@ -11,6 +11,9 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  content: {
+    pipeline: ['./te-web/**/*.{ts,tsx,vue}'],
+  },
   theme: {
     colors: {
       'primary': 'var(--n-primary-color)',

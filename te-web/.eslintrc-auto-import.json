@@ -318,6 +318,8 @@
     "useLocale": true,
     "generateMenu": true,
     "generateFlatAuthList": true,
-    "getBreadcrumbList": true
+    "getBreadcrumbList": true,
+    "useVxeGrid": true,
+    "http": true
   }
 }

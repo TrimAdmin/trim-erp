@@ -23,10 +23,11 @@ export class UserService {
       select: {
         id: true,
         username: true,
+        nickname: true,
         email: true,
         phone: true,
-        nickname: true,
         status: true,
+        sex: true,
         createTime: true,
         updateTime: true,
       },

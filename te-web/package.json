@@ -12,6 +12,6 @@
   "dependencies": {
     "naive-ui": "^2.40.1",
     "vfonts": "^0.0.3",
-    "vxe-table": "^4.6.21"
+    "vxe-table": "^4.7.94"
   }
 }

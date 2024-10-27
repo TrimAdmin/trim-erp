@@ -8,6 +8,7 @@ export default antfu({
   typescript: {
     overrides: {
       'ts/consistent-type-imports': 'off',
+      'ts/no-unused-vars': 'error',
     },
   },
   javascript: true,

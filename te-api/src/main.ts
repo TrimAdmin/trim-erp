@@ -20,6 +20,20 @@ function initSwagger(app: INestApplication) {
   })
 }
 
+function initFilters(app: INestApplication) {
+  // 启用全局校验拦截
+  app.useGlobalPipes(new ValidationPipe({
+    stopAtFirstError: true,
+  }))
+  // 启用全局过滤
+  const { httpAdapter } = app.get(HttpAdapterHost)
+  app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter, {
+    P2000: HttpStatus.BAD_REQUEST,
+    P2002: HttpStatus.CONFLICT,
+    P2025: HttpStatus.NOT_FOUND,
+  }), new HttpExceptionFilter(), new UnauthorizedExceptionFilter())
+}
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   // 非生产环境初始化swagger
@@ -32,19 +46,10 @@ async function bootstrap() {
     credentials: true,
     maxAge: 1728000,
   })
-  // 启用全局校验拦截
-  app.useGlobalPipes(new ValidationPipe({
-    stopAtFirstError: true,
-  }))
-  // 启用全局过滤
-  const { httpAdapter } = app.get(HttpAdapterHost)
-  app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter, {
-    P2000: HttpStatus.BAD_REQUEST,
-    P2002: HttpStatus.CONFLICT,
-    P2025: HttpStatus.NOT_FOUND,
-  }), new HttpExceptionFilter(), new UnauthorizedExceptionFilter())
+  initFilters(app)
   const config = app.get(ConfigService)
   const port = config.get('server.port')
+  console.log(`server is running at http://localhost:${port}, api-doc path is: /api-doc`)
   await app.listen(port)
 }
 
