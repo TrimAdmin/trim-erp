@@ -1,5 +1,6 @@
 // @unocss-include
 import { App } from 'vue'
+import { VxeButton, VxeTooltip } from 'vxe-pc-ui'
 import {
   VxeColgroup,
   VxeColumn,
@@ -9,6 +10,10 @@ import {
   VxeUI,
 } from 'vxe-table'
 import 'vxe-table/lib/style.min.css'
+import 'vxe-pc-ui/lib/style.min.css'
+
+VxeUI.component(VxeButton)
+VxeUI.component(VxeTooltip)
 
 VxeUI.setConfig({
   i18n: (key, args) => useLocale().t(key, args),
@@ -91,7 +96,13 @@ VxeUI.setIcon({
 })
 
 export function pluginVxeTable(app: App) {
-  [VxeGrid, VxeColgroup, VxeTable, VxeColumn, VxeToolbar].forEach((component) => {
+  [
+    VxeGrid,
+    VxeColgroup,
+    VxeTable,
+    VxeColumn,
+    VxeToolbar,
+  ].forEach((component) => {
     app.use(component)
   })
 }
