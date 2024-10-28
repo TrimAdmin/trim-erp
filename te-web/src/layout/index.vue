@@ -18,7 +18,8 @@ const layout = computed(() => {
 <template>
   <div class="h-full flex flex-col">
     <Component :is="$route.meta?.noLayout ? 'div' : layout">
-      <AnimatedRouterView />
+      <RouterView v-if="$route.meta?.noLayout" />
+      <AnimatedRouterView v-else />
     </Component>
   </div>
 </template>

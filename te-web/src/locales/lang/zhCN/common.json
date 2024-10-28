@@ -3,5 +3,6 @@
   "unfold-menu": "展开菜单",
   "dark-mode": "暗色模式",
   "light-mode": "亮色模式",
-  "switch-locale": "切换语言"
+  "switch-locale": "切换语言",
+  "phinput": "请输入{field}"
 }
