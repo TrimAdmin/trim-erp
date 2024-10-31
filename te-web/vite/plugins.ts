@@ -32,7 +32,9 @@ export function vitePlugins(mode: string): UserConfig['plugins'] {
     }),
     AutoImport({
       dts: './types/generated/auto-import.d.ts',
-      imports: ['pinia', 'vue', '@vueuse/core', VueRouterAutoImports],
+      imports: ['pinia', 'vue', '@vueuse/core', VueRouterAutoImports, {
+        'alova/client': ['useRequest'],
+      }],
       dirs: ['./src/utils', './src/hooks', './src/composables'],
       eslintrc: {
         enabled: true,

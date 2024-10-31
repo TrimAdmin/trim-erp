@@ -1,12 +1,25 @@
 import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
+import process from 'node:process'
+import { defineConfig, loadEnv } from 'vite'
 import { vitePlugins } from './vite/plugins'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const { VITE_ENABLE_PROXY, VITE_API_BASE_URL } = env
+
   return {
     server: {
       port: 5300,
+      proxy: VITE_ENABLE_PROXY
+        ? {
+            '/proxy-api': {
+              target: VITE_API_BASE_URL,
+              changeOrigin: true,
+              rewrite: (path) => path.replace(/^\/proxy-api/, ''),
+            },
+          }
+        : undefined,
     },
     plugins: vitePlugins(mode),
     resolve: {

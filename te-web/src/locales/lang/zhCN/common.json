@@ -4,5 +4,10 @@
   "dark-mode": "暗色模式",
   "light-mode": "亮色模式",
   "switch-locale": "切换语言",
-  "phinput": "请输入{field}"
+  "phinput": "请输入{field}",
+  "request-failed": "请求失败，请稍后再试",
+  "request-error": "请求出错：{reason}",
+  "internal-error": "内部错误",
+  "require-auth": "请先登录",
+  "no-permission": "暂无权限"
 }

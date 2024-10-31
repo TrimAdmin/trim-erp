@@ -320,6 +320,7 @@
     "generateFlatAuthList": true,
     "getBreadcrumbList": true,
     "useVxeGrid": true,
-    "http": true
+    "http": true,
+    "useRequest": true
   }
 }

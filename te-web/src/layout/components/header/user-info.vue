@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useUserStore } from '@/store'
 import { DropdownMixedOption } from 'naive-ui/es/dropdown/src/interface'
+
+const userStore = useUserStore()
 
 const options: DropdownMixedOption[] = [
   {
@@ -28,9 +31,9 @@ function renderIcon(icon: string) {
   <n-dropdown :options>
     <div class="flex-c cursor-pointer select-none gap-1">
       <n-avatar circle size="small">
-        admin
+        {{ userStore.userInfo.nickname || userStore.userInfo.username }}
       </n-avatar>
-      admin
+      {{ userStore.userInfo.nickname || userStore.userInfo.username }}
       <span class="i-ri:arrow-down-s-fill" />
     </div>
   </n-dropdown>

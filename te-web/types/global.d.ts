@@ -8,4 +8,11 @@ declare global {
   type TrimMenuOptionBreadcrumb = TrimMenuOption & {
     parent?: Omit<TrimMenuOption, 'children'>
   }
+
+  interface ApiResponse<T = any> {
+    code: number
+    data: T
+    message: string
+    success: boolean
+  }
 }

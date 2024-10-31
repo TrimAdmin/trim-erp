@@ -1,5 +1,6 @@
 {
   "welcome": "欢迎使用",
   "username": "用户名",
-  "password": "密码"
+  "password": "密码",
+  "login": "登录"
 }
