@@ -31,7 +31,7 @@ function onSelect(key: string) {
     case 'UserInfo':
       break
     case 'Logout':
-      useModal().dialog.warning({
+      dialog.value.warning({
         title: '提示',
         content: '确定要退出登录吗？',
         positiveText: '确定',

@@ -36,11 +36,11 @@ const http = createAlova({
         }
       }
       catch (e: any) {
-        useModal().message.error(e.message)
+        message.value.error(e.message)
       }
     },
     onError: (err) => {
-      useModal().message.error(t('common.request-error', {
+      message.value.error(t('common.request-error', {
         reason: err.message,
       }))
     },

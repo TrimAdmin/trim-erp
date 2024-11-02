@@ -321,6 +321,14 @@
     "getBreadcrumbList": true,
     "useVxeGrid": true,
     "http": true,
-    "useRequest": true
+    "useRequest": true,
+    "modal": true,
+    "dialog: modal.value.dialog": true,
+    "message: modal.value.message": true,
+    "modal: modal.value.modal": true,
+    "notification: modal.value.notification": true,
+    "message": true,
+    "dialog": true,
+    "notification": true
   }
 }

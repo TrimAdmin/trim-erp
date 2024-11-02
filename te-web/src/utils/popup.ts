@@ -9,18 +9,18 @@ import {
   type NotificationApi,
 } from 'naive-ui'
 
-interface Modal {
+interface Popup {
   dialog: DialogApi
   message: MessageApi
   modal: ModalApi
   notification: NotificationApi
 }
 
-const modal = ref<Modal>({} as Modal)
+const popup = ref<Popup>({} as Popup)
 
 watchPostEffect(() => {
   const dark = useConfigStoreHook().config.theme.darkMode
-  modal.value = createDiscreteApi(['dialog', 'message', 'modal', 'notification'], {
+  popup.value = createDiscreteApi(['dialog', 'message', 'modal', 'notification'], {
     configProviderProps: {
       theme: dark ? darkTheme : lightTheme,
       themeOverrides: useThemeStoreHook().themeOverrides,
@@ -28,6 +28,7 @@ watchPostEffect(() => {
   })
 })
 
-export function useModal() {
-  return modal.value
-}
+export const dialog = computed<DialogApi>(() => popup.value.dialog)
+export const message = computed<MessageApi>(() => popup.value.message)
+export const modal = computed<ModalApi>(() => popup.value.modal)
+export const notification = computed<NotificationApi>(() => popup.value.notification)
