@@ -10,8 +10,11 @@ const { t } = useLocale()
 const http = createAlova({
   requestAdapter: adapterFetch(),
   statesHook: VueHook,
+  timeout: 30000,
+  cacheFor: null,
   baseURL: VITE_ENABLE_PROXY ? '/proxy-api' : VITE_API_BASE_URL,
-  beforeRequest(method) {
+  beforeRequest: (method) => {
+    method.config.headers['Content-Type'] = 'application/json;charset=UTF-8'
     method.config.headers.Token = useUserStoreHook().token
   },
   responded: {
