@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { usePermissionStore } from '@/store'
+import { useMenuStore } from '@/store'
 
 const route = useRoute()
-const permissionStore = usePermissionStore()
+const permissionStore = useMenuStore()
 const breadcrumbList = computed(() => permissionStore.getBreadcrumbList(route.name))
 </script>
 

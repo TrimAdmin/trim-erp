@@ -4,7 +4,7 @@ import { getUserInfo, login } from '@/api/system/auth'
 
 const useUserStore = defineStore('user', () => {
   const token = useLocalStorage<string>('trim__token', '')
-  const userInfo = ref<UserInfo>({} as UserInfo)
+  const userInfo = ref<UserInfo>('trim__user-info', {} as UserInfo)
   const isLogged = computed<boolean>(() => !!token.value)
 
   const router = useRouter()
@@ -12,10 +12,10 @@ const useUserStore = defineStore('user', () => {
   async function handleLogin(form: LoginForm) {
     const { data } = await login(form)
     token.value = data
-    router.push({
+    await handleGetUserInfo()
+    router.replace({
       name: 'Home',
     })
-    getUserInfo()
   }
 
   async function handleGetUserInfo() {
@@ -26,6 +26,9 @@ const useUserStore = defineStore('user', () => {
   function handleLogout() {
     token.value = undefined
     userInfo.value = {} as UserInfo
+    router.replace({
+      name: 'Login',
+    })
   }
 
   return {

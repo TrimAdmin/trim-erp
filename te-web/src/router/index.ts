@@ -1,4 +1,4 @@
-import { usePermissionStoreHook, useUserStoreHook } from '@/store'
+import { useMenuStoreHook, useUserStoreHook } from '@/store'
 import { defineBasicLoader } from 'unplugin-vue-router/data-loaders/basic'
 import { NavigationResult } from 'unplugin-vue-router/runtime'
 import {
@@ -30,8 +30,8 @@ routes.forEach((route) => {
 })
 
 // @ts-expect-error not infinity
-usePermissionStoreHook().menu = generateMenu(routes)
-usePermissionStoreHook().permissionList = generateFlatAuthList(routes)
+useMenuStoreHook().menu = generateMenu(routes)
+useMenuStoreHook().permissionList = generateFlatAuthList(routes)
 
 const router = createRouter({
   routes,

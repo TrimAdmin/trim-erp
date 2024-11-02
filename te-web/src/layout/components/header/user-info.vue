@@ -25,15 +25,33 @@ function renderIcon(icon: string) {
     class: icon,
   })
 }
+
+function onSelect(key: string) {
+  switch (key) {
+    case 'UserInfo':
+      break
+    case 'Logout':
+      useModal().dialog.warning({
+        title: '提示',
+        content: '确定要退出登录吗？',
+        positiveText: '确定',
+        negativeText: '取消',
+        onPositiveClick: () => {
+          userStore.handleLogout()
+        },
+      })
+      break
+  }
+}
 </script>
 
 <template>
-  <n-dropdown :options>
-    <div class="flex-c cursor-pointer select-none gap-1">
-      <n-avatar circle size="small">
+  <n-dropdown :options @select="onSelect">
+    <div class="flex-c cursor-pointer select-none">
+      <n-avatar round size="small" class="mr-1">
         {{ userStore.userInfo.nickname || userStore.userInfo.username }}
       </n-avatar>
-      {{ userStore.userInfo.nickname || userStore.userInfo.username }}
+      {{ userStore.userInfo.nickname || userStore.userInfo.username || '-' }}
       <span class="i-ri:arrow-down-s-fill" />
     </div>
   </n-dropdown>

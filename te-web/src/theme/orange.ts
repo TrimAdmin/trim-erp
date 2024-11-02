@@ -45,7 +45,6 @@ export const lightTheme: GlobalThemeOverrides = {
     bodyColor: '#f5f5f5',
     popoverColor: '#ffffff',
     cardColor: '#ffffff',
-    modalColor: 'rgba(0, 0, 0, 0.45)',
   },
 }
 
@@ -94,6 +93,5 @@ export const darkTheme: GlobalThemeOverrides = {
     bodyColor: '#000000',
     popoverColor: '#1f1f1f',
     cardColor: '#141414',
-    modalColor: 'rgba(0, 0, 0, 0.45)',
   },
 }

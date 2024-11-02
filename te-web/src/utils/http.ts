@@ -25,9 +25,12 @@ const http = createAlova({
             throw new Error(data.message)
           case 401:
             useUserStoreHook().handleLogout()
-            throw new Error(t('require-auth'))
+            if (!res.url.includes('auth/user-info')) {
+              throw new Error(t('common.require-auth'))
+            }
+            break
           case 403:
-            throw new Error(t('no-permission'))
+            throw new Error(t('common.no-permission'))
           default:
             throw new Error(t('common.internal-error'))
         }

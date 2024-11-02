@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useConfigStore, usePermissionStore } from '@/store'
+import { useConfigStore, useMenuStore } from '@/store'
 import { MenuOption } from 'naive-ui'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
-const permissionStore = usePermissionStore()
+const permissionStore = useMenuStore()
 const configStore = useConfigStore()
 const router = useRouter()
 const { t } = useLocale()

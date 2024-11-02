@@ -12,6 +12,7 @@ meta:
 <template>
   <div>
     user
+    <n-button v-auth="['system:user']" />
   </div>
 </template>
 

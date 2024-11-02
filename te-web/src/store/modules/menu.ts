@@ -1,6 +1,5 @@
-const usePermissionStore = defineStore('permission', () => {
+const useMenuStore = defineStore('menu', () => {
   const menu = ref<TrimMenuOption[]>([])
-  const permissionList = ref<string[]>([])
   const flatMenu = computed<TrimMenuOptionBreadcrumb[]>(() => getFlatMenu(menu.value))
 
   function getFlatMenu(menuList: TrimMenuOption[]): TrimMenuOptionBreadcrumb[] {
@@ -41,9 +40,8 @@ const usePermissionStore = defineStore('permission', () => {
 
   return {
     menu,
-    permissionList,
     getBreadcrumbList,
   }
 })
 
-export default usePermissionStore
+export default useMenuStore

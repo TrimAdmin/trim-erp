@@ -9,5 +9,8 @@
   "request-error": "请求出错：{reason}",
   "internal-error": "内部错误",
   "require-auth": "请先登录",
-  "no-permission": "暂无权限"
+  "no-permission": "暂无权限",
+  "confirm": {
+    "logout": "确认退出登录吗？"
+  }
 }
