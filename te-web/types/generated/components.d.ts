@@ -23,10 +23,12 @@ declare module 'vue' {
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NMenu: typeof import('naive-ui')['NMenu']
     NTooltip: typeof import('naive-ui')['NTooltip']
+    PageContainer: typeof import('./../../src/components/internal/page-container/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SiderCollapse: typeof import('./../../src/components/system/sider-collapse/index.vue')['default']
     SwitchLocale: typeof import('./../../src/components/system/switch-locale/index.vue')['default']
     ToggleDark: typeof import('./../../src/components/system/toggle-dark/index.vue')['default']
+    VxeTableToolbar: typeof import('./../../src/components/internal/vxe-table-toolbar/index.vue')['default']
   }
 }

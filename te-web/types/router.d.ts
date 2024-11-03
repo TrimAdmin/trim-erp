@@ -7,6 +7,7 @@ declare module 'vue-router' {
     auth?: string
     public?: boolean
     hideMenu?: boolean
+    hideTab?: boolean
     icon?: string
     loaders?: UseDataLoader<boolean, unknown>[]
   }

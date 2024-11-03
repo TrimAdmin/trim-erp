@@ -21,6 +21,9 @@
     "vue"
   ],
 
+  // VSCode scss
+  "scss.lint.unknownAtRules": "ignore",
+
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,

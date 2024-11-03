@@ -6,6 +6,7 @@ const useUserStore = defineStore('user', () => {
   const token = useLocalStorage<string>('trim__token', '')
   const userInfo = ref<UserInfo>('trim__user-info', {} as UserInfo)
   const isLogged = computed<boolean>(() => !!token.value)
+  const tagsStore = useTagsStoreHook()
 
   const router = useRouter()
 
@@ -19,6 +20,8 @@ const useUserStore = defineStore('user', () => {
   }
 
   async function handleGetUserInfo() {
+    if (!isLogged.value)
+      return
     const { data } = await getUserInfo()
     userInfo.value = data
   }
@@ -26,6 +29,7 @@ const useUserStore = defineStore('user', () => {
   function handleLogout() {
     token.value = undefined
     userInfo.value = {} as UserInfo
+    tagsStore.clearTags()
     router.replace({
       name: 'Login',
     })

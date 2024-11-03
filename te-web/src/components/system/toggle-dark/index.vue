@@ -50,13 +50,12 @@ function handleViewTransition(e: MouseEvent) {
   <n-tooltip>
     {{ configStore.config.theme.darkMode ? $t('common.light-mode') : $t('common.dark-mode') }}
     <template #trigger>
-      <n-button
-        circle
-        quaternary
+      <div
+        class="h-6 w-6 flex-c text-4 hover:cursor-pointer"
         @click="handleViewTransition"
       >
         <i :class="configStore.config.theme.darkMode ? 'i-ant-design:sun-outlined' : 'i-ant-design:moon-outlined'" />
-      </n-button>
+      </div>
     </template>
   </n-tooltip>
 </template>

@@ -1,4 +1,3 @@
-import { useConfigStoreHook, useThemeStoreHook } from '@/store'
 import {
   createDiscreteApi,
   darkTheme,

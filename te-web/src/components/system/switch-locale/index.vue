@@ -28,9 +28,9 @@ const options = computed<DropdownOption[]>(() => [
     <n-tooltip>
       {{ $t('common.switch-locale') }}
       <template #trigger>
-        <n-button circle quaternary>
+        <div class="h-6 w-6 flex-c text-4 hover:cursor-pointer">
           <i class="i-ri:translate-2" />
-        </n-button>
+        </div>
       </template>
     </n-tooltip>
   </n-dropdown>

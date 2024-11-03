@@ -5,6 +5,7 @@ import {
   createRouter,
   createWebHashHistory,
   createWebHistory,
+  RouteRecordRaw,
 } from 'vue-router'
 import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 
@@ -22,6 +23,9 @@ const routerInterceptor = defineBasicLoader(async (to) => {
   if (to.name === 'Login' && userStore.isLogged) {
     return new NavigationResult(false)
   }
+  // 推到tabsList
+  const tagsStore = useTagsStoreHook()
+  tagsStore.addTag(to as unknown as RouteRecordRaw)
 })
 
 routes.forEach((route) => {

@@ -4,6 +4,7 @@ meta:
   title: 登录
   public: true
   hideMenu: true
+  hideTab: true
   noLayout: true
 </route>
 
@@ -65,7 +66,7 @@ async function handleLogin() {
             </n-input>
           </n-form-item>
           <n-form-item path="password">
-            <n-input v-model:value="loginForm.password" round type="password" show-password-toggle :placeholder="$t('common.phinput', { field: $t('login.password') })">
+            <n-input v-model:value="loginForm.password" round type="password" show-password-on="click" :placeholder="$t('common.phinput', { field: $t('login.password') })">
               <template #prefix>
                 <i class="i-ri:lock-2-line" />
               </template>

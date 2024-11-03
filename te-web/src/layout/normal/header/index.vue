@@ -5,15 +5,15 @@ import Breadcrumb from '../../components/header/breadcrumb.vue'
 
 <template>
   <n-layout-header
-    class="h-header flex-bc px-4 shadow-md"
+    class="h-header flex-bc border-b-1 border-b-border border-b-solid px-4"
   >
     <div class="flex items-center gap-2">
-      <sider-collapse />
+      <SiderCollapse />
       <Breadcrumb />
     </div>
-    <div class="flex items-center gap-2">
-      <toggle-dark />
-      <switch-locale />
+    <div class="flex items-center gap-3">
+      <ToggleDark />
+      <SwitchLocale />
       <UserInfo />
     </div>
   </n-layout-header>

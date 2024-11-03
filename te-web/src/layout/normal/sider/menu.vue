@@ -29,6 +29,7 @@ function renderLabel(menu: MenuOption) {
     :render-label="renderLabel"
     :collapsed-width="64"
     :inverted="configStore.config.theme.darkMode"
+    :watch-props="['defaultValue']"
     @update-value="onMenuChange"
   />
 </template>

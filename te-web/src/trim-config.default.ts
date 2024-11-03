@@ -2,7 +2,7 @@ import { TrimConfig } from '#/trim-config'
 
 const defaultConfig: TrimConfig = {
   theme: {
-    name: 'antd',
+    name: 'orange',
     darkMode: false,
     layout: 'normal',
     siderWidth: 200,

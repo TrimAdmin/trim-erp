@@ -329,6 +329,17 @@
     "notification: modal.value.notification": true,
     "message": true,
     "dialog": true,
-    "notification": true
+    "notification": true,
+    "store": true,
+    "useConfigStore": true,
+    "useConfigStoreHook": true,
+    "useMenuStore": true,
+    "useMenuStoreHook": true,
+    "useTagsStore": true,
+    "useTagsStoreHook": true,
+    "useThemeStore": true,
+    "useThemeStoreHook": true,
+    "useUserStore": true,
+    "useUserStoreHook": true
   }
 }

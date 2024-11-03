@@ -10,7 +10,6 @@ import {
   zhCN,
   zhTW,
 } from 'naive-ui'
-import { useConfigStore, useThemeStore } from './store'
 
 const localeObj = {
   zhCN: [zhCN, dateZhCN],
@@ -20,10 +19,12 @@ const localeObj = {
 
 const themeStore = useThemeStore()
 const configStore = useConfigStore()
+const userStore = useUserStore()
 const router = useRouter()
 const [isReady, setIsReady] = useToggle(false)
 
 onMounted(async () => {
+  await userStore.handleGetUserInfo()
   await router.isReady()
   setIsReady(true)
 })

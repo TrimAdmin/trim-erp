@@ -32,7 +32,13 @@ VxeUI.setConfig({
       msgMode: 'single',
     },
     customConfig: {
-      storage: true,
+      storage: {
+        visible: true,
+        resizable: true,
+        sort: true,
+        fixed: true,
+      },
+      mode: 'drawer',
     },
     columnConfig: {
       resizable: true,

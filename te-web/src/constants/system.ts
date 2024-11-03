@@ -1,4 +1,4 @@
-export const themeList = ['antd', 'orange'] as const
+export const themeList = ['antd', 'orange', 'forest'] as const
 
 export const localeList = ['zhCN', 'zhTW', 'enUS'] as const
 

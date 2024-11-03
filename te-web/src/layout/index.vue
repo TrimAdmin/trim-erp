@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useConfigStore, useUserStoreHook } from '@/store'
+import { useConfigStore } from '@/store'
 import AnimatedRouterView from './components/animated-router-view.vue'
 import NormalLayout from './normal/index.vue'
 
 const configStore = useConfigStore()
-const userStore = useUserStoreHook()
 
 const layout = computed(() => {
   switch (configStore.config.theme.layout) {
@@ -14,8 +13,6 @@ const layout = computed(() => {
       return NormalLayout
   }
 })
-
-userStore.handleGetUserInfo()
 </script>
 
 <template>

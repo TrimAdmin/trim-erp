@@ -7,6 +7,7 @@ const useConfigStore = defineStore('config', () => {
 
   watchPostEffect(() => {
     document.documentElement.style.setProperty('--trim-header-height', `${config.value.theme.headerHeight}px`)
+    document.documentElement.style.setProperty('--trim-header-height-with-tabs', `${config.value.theme.headerHeight + 40}px`)
     document.documentElement.style.setProperty('--trim-sider-width', `${config.value.theme.siderWidth}px`)
   })
 

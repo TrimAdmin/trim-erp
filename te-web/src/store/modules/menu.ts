@@ -1,5 +1,7 @@
 const useMenuStore = defineStore('menu', () => {
   const menu = ref<TrimMenuOption[]>([])
+  const permissionList = ref<string[]>([])
+  // @ts-expect-error not infinity
   const flatMenu = computed<TrimMenuOptionBreadcrumb[]>(() => getFlatMenu(menu.value))
 
   function getFlatMenu(menuList: TrimMenuOption[]): TrimMenuOptionBreadcrumb[] {
@@ -40,6 +42,7 @@ const useMenuStore = defineStore('menu', () => {
 
   return {
     menu,
+    permissionList,
     getBreadcrumbList,
   }
 })

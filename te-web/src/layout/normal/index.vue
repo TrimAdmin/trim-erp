@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Tags from '../components/tags/index.vue'
 import Header from './header/index.vue'
 import Sider from './sider/index.vue'
 </script>
@@ -7,12 +8,15 @@ import Sider from './sider/index.vue'
   <n-layout has-sider>
     <Sider />
     <n-layout content-class="flex flex-col relative">
+      <Tags />
       <Header />
-      <n-layout-content>
+      <n-layout-content content-class="p-4">
         <slot />
       </n-layout-content>
       <n-layout-footer>
-        footer
+        <div class="py-4 text-center">
+          Copyright &copy; 2024-present Trim ERP
+        </div>
       </n-layout-footer>
     </n-layout>
   </n-layout>

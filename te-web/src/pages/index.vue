@@ -23,18 +23,18 @@ const {
       name: '张三',
     },
     {
-      name: '李四',
+      name: undefined,
     },
   ],
 })
 </script>
 
 <template>
-  <div>
-    <SwitchLocale />
-    {{ $t('common.test') }}
-    <vxe-grid v-bind="gridConfig" ref="gridRef" />
-  </div>
+  <PageContainer>
+    <VxeTableToolbar>
+      <vxe-grid v-bind="gridConfig" ref="gridRef" />
+    </VxeTableToolbar>
+  </PageContainer>
 </template>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@ import {
   VxeColumnProps,
   VxeGridInstance,
   VxeGridProps,
-  VxeTableDataRow,
+  VxeTablePropTypes,
 } from 'vxe-table'
 
 interface Props<T> {
@@ -16,7 +16,7 @@ interface Props<T> {
   page?: boolean
 }
 
-export function useVxeGrid<T extends VxeTableDataRow>(props: Props<T>) {
+export function useVxeGrid<T extends VxeTablePropTypes.Row>(props: Props<T>) {
   const {
     id,
     columns,

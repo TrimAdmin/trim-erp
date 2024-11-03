@@ -10,10 +10,10 @@ meta:
 </script>
 
 <template>
-  <div>
+  <PageContainer>
     user
     <n-button v-auth="['system:user']" />
-  </div>
+  </PageContainer>
 </template>
 
 <style lang="scss" scoped>
