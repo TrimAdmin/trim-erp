@@ -33,6 +33,8 @@ declare module 'vue' {
     SettingsDrawer: typeof import('./../../src/components/system/settings-drawer/index.vue')['default']
     SiderCollapse: typeof import('./../../src/components/system/sider-collapse/index.vue')['default']
     SwitchLocale: typeof import('./../../src/components/system/switch-locale/index.vue')['default']
+    Tablebar: typeof import('./../../src/components/internal/tablebar/index.vue')['default']
+    TableBar: typeof import('./../../src/components/internal/table-bar/index.vue')['default']
     ToggleDark: typeof import('./../../src/components/system/toggle-dark/index.vue')['default']
     VxeTableToolbar: typeof import('./../../src/components/internal/vxe-table-toolbar/index.vue')['default']
   }

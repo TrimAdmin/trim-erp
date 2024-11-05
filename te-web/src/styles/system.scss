@@ -40,6 +40,10 @@
   height: var(--trim-header-height);
 }
 
+.h-header-tags {
+  height: var(--trim-header-height-with-tags);
+}
+
 .w-sider {
   height: var(--trim-sider-width);
 }

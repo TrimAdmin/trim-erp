@@ -10,10 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vxe-ui/core": "^4.0.16",
     "naive-ui": "^2.40.1",
     "vfonts": "^0.0.3",
-    "vue-draggable-plus": "^0.5.6",
-    "vxe-table": "^4.8.0"
+    "vue-draggable-plus": "^0.5.6"
   }
 }

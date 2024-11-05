@@ -340,6 +340,19 @@
     "useThemeStore": true,
     "useThemeStoreHook": true,
     "useUserStore": true,
-    "useUserStoreHook": true
+    "useUserStoreHook": true,
+    "parse": true,
+    "stringify": true,
+    "J": true,
+    "a": true,
+    "e": true,
+    "n": true,
+    "o": true,
+    "p": true,
+    "r": true,
+    "s": true,
+    "parseJson": true,
+    "useTableStore": true,
+    "useTableStoreHook": true
   }
 }

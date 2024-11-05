@@ -15,4 +15,10 @@ declare global {
     message: string
     success: boolean
   }
+
+  interface TableConfig {
+    [key: string]: {
+      columns: []
+    } | undefined
+  }
 }
