@@ -2,12 +2,12 @@ import { IsNotEmpty } from 'class-validator'
 
 export class LoginDto {
   @IsNotEmpty({
-    message: '请输入用户名',
+    message: '用户名必填',
   })
   username: string
 
   @IsNotEmpty({
-    message: '请输入密码',
+    message: '密码必填',
   })
   password: string
 }

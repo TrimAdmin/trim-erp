@@ -13,17 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 状态
-enum Status {
-  ENABLED
-  DISABLED
-}
-
 // 性别
 enum Sex {
+  // 未知
   UNKNOWN
+  // 男
   MALE
+  // 女
   FEMALE
+  // 其他
   OTHER
 }
 
@@ -38,7 +36,7 @@ model SysUser {
   nickname    String?
   email       String?       @unique
   phone       String?       @unique
-  status      Status        @default(ENABLED)
+  status      Int           @default(1)
   sex         Sex           @default(UNKNOWN)
   SysUserDept SysUserDept[]
   SysUserRole SysUserRole[]
@@ -54,7 +52,7 @@ model SysDept {
   updateTime  DateTime      @default(now()) @updatedAt()
   deleteTime  DateTime?
   name        String
-  status      Status        @default(ENABLED)
+  status      Int           @default(1)
   SysUserDept SysUserDept[]
 
   @@map("sys_dept")
@@ -83,7 +81,7 @@ model SysRole {
   name        String
   permission  String[]      @default([])
   remark      String?
-  status      Status        @default(ENABLED)
+  status      Int           @default(1)
   SysUserRole SysUserRole[]
 
   @@index([name])
@@ -113,7 +111,7 @@ model SysDictType {
   key         String
   label       String
   remark      String?
-  status      Status        @default(ENABLED)
+  status      Int           @default(1)
   SysDictData SysDictData[]
 
   @@map("sys_dict_type")
@@ -128,7 +126,7 @@ model SysDictData {
   label      String
   value      Int
   remark     String?
-  status     Status      @default(ENABLED)
+  status     Int         @default(1)
   typeId     Int
   type       SysDictType @relation(references: [id], fields: [typeId])
 

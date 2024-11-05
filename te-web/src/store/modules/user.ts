@@ -33,6 +33,9 @@ const useUserStore = defineStore('user', () => {
     router.replace({
       name: 'Login',
     })
+    setTimeout(() => {
+      window.location.reload()
+    }, 0)
   }
 
   return {

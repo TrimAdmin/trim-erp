@@ -12,7 +12,7 @@ import { LoginDto } from './auth.dto'
 import { AuthService } from './auth.service'
 
 @Controller('auth')
-@ApiTags('认证相关')
+@ApiTags('系统-认证相关')
 export class AuthController {
   constructor(private authService: AuthService) {
   }
