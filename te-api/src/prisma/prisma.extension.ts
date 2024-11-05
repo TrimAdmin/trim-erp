@@ -41,7 +41,15 @@ export const extendedPrismaClient = new PrismaClient().$extends({
     limit: 10,
   },
 })).$extends(createSoftDeleteExtension({
-  models: {},
+  models: {
+    SysUser: true,
+    SysDept: true,
+    SysDictData: true,
+    SysDictType: true,
+    SysRole: true,
+    SysUserDept: true,
+    SysUserRole: true,
+  },
   defaultConfig: {
     field: 'deleteTime',
     createValue: (deleted) => {

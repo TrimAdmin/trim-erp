@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { STATUS } from 'src/enum/status'
 
 const prisma = new PrismaClient()
 
@@ -8,6 +9,7 @@ async function main() {
       id: 1,
       name: '管理员',
       permission: ['*:*'],
+      status: STATUS.DEFAULT,
     },
   })
   await prisma.sysUser.create({
@@ -15,6 +17,7 @@ async function main() {
       id: 1,
       username: 'admin',
       password: '123456',
+      status: STATUS.DEFAULT,
     },
   })
   await prisma.sysUserRole.create({
