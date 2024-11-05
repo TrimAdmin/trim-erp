@@ -1,0 +1,5 @@
+{
+  "logout": "确认退出登录吗？",
+  "not-support-env": "当前环境不支持该功能",
+  "config-copy-success": "复制成功，请到src/trim-config.ts文件下粘贴"
+}

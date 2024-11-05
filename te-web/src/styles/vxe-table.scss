@@ -30,6 +30,16 @@
   --vxe-info-darken-color: var(--n-primary-color-pressed);
   --vxe-ui-table-border-color: var(--n-border-color);
 
+  // ui
+  --vxe-ui-font-color: var(--n-text-color-2);
+  --vxe-ui-font-darken-color: var(--n-text-color-1);
+  --vxe-ui-font-lighten-color: var(--n-text-color-3);
+  --vxe-ui-font-tinge-color: var(--n-text-color-disabled);
+  --vxe-ui-font-disabled-color: var(--n-text-color-disabled);
+  --vxe-ui-font-primary-color: var(--n-primary-color);
+  --vxe-ui-font-primary-lighten-color: var(--n-primary-color-hover);
+  --vxe-ui-font-primary-darken-color: var(--n-primary-color-pressed);
+
   // table
   --vxe-table-border-radius: var(--n-border-radius);
   --vxe-table-border-color: var(--n-border-color);

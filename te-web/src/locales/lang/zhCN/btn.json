@@ -1,0 +1,17 @@
+{
+  "yes": "是",
+  "no": "否",
+  "confirm": "确认",
+  "cancel": "取消",
+  "copy": "复制",
+  "copy-config": "复制配置",
+  "save": "保存",
+  "add": "添加",
+  "edit": "编辑",
+  "delete": "删除",
+  "update": "编辑",
+  "create": "新增",
+  "search": "搜索",
+  "reset": "重置",
+  "refresh": "刷新"
+}

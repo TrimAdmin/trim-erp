@@ -10,7 +10,16 @@
   "internal-error": "内部错误",
   "require-auth": "请先登录",
   "no-permission": "暂无权限",
-  "confirm": {
-    "logout": "确认退出登录吗？"
+  "tips": "提示",
+  "user-info": "个人信息",
+  "logout": "退出登录",
+  "config-panel": "设置面板",
+  "config": {
+    "theme": "主题"
+  },
+  "theme": {
+    "antd": "Ant Design",
+    "orange": "熔岩橙",
+    "forest": "森林绿"
   }
 }

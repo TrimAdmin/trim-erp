@@ -4,7 +4,7 @@ import { getUserInfo, login } from '@/api/system/auth'
 
 const useUserStore = defineStore('user', () => {
   const token = useLocalStorage<string>('trim__token', '')
-  const userInfo = ref<UserInfo>('trim__user-info', {} as UserInfo)
+  const userInfo = ref<UserInfo>({} as UserInfo)
   const isLogged = computed<boolean>(() => !!token.value)
   const tagsStore = useTagsStoreHook()
 

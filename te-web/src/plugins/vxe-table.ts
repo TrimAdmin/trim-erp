@@ -1,19 +1,8 @@
 // @unocss-include
 import { App } from 'vue'
-import { VxeButton, VxeTooltip } from 'vxe-pc-ui'
-import {
-  VxeColgroup,
-  VxeColumn,
-  VxeGrid,
-  VxeTable,
-  VxeToolbar,
-  VxeUI,
-} from 'vxe-table'
-import 'vxe-table/lib/style.min.css'
-import 'vxe-pc-ui/lib/style.min.css'
-
-VxeUI.component(VxeButton)
-VxeUI.component(VxeTooltip)
+import VxeTable, { VxeUI } from 'vxe-table'
+import 'vxe-table/lib/style.css'
+import '@vxe-ui/core'
 
 VxeUI.setConfig({
   i18n: (key, args) => useLocale().t(key, args),
@@ -21,8 +10,8 @@ VxeUI.setConfig({
   table: {
     align: 'center',
     autoResize: true,
-    border: 'full',
     keepSource: true,
+    border: 'full',
     round: true,
     showOverflow: true,
     validConfig: {
@@ -30,15 +19,6 @@ VxeUI.setConfig({
       autoClear: true,
       autoPos: true,
       msgMode: 'single',
-    },
-    customConfig: {
-      storage: {
-        visible: true,
-        resizable: true,
-        sort: true,
-        fixed: true,
-      },
-      mode: 'drawer',
     },
     columnConfig: {
       resizable: true,
@@ -59,6 +39,20 @@ VxeUI.setConfig({
       highlight: true,
       checkRowKey: 'id',
       strict: true,
+    },
+    customConfig: {
+      storage: true,
+      mode: 'drawer',
+    },
+  },
+  grid: {
+    toolbarConfig: {
+      custom: true,
+      zoom: true,
+    },
+    customConfig: {
+      storage: true,
+      mode: 'drawer',
     },
   },
 })
@@ -102,13 +96,5 @@ VxeUI.setIcon({
 })
 
 export function pluginVxeTable(app: App) {
-  [
-    VxeGrid,
-    VxeColgroup,
-    VxeTable,
-    VxeColumn,
-    VxeToolbar,
-  ].forEach((component) => {
-    app.use(component)
-  })
+  app.use(VxeTable)
 }

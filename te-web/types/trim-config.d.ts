@@ -12,7 +12,7 @@ export interface TrimConfig {
 export type TrimUserConfig = Partial<TrimConfig>
 
 interface Theme {
-  name: typeof themeList[number]
+  name: typeof themeList[number]['value']
   darkMode: boolean
   layout: typeof layoutList[number]
   siderWidth: number

@@ -33,9 +33,7 @@ export function useVxeGrid<T extends VxeTablePropTypes.Row>(props: Props<T>) {
     columns,
     data: data && data.length ? data : [],
     toolbarConfig: {
-      custom: true,
       refresh: !!api,
-      zoom: true,
     },
     proxyConfig: {
       enabled: !!api,

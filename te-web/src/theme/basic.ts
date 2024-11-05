@@ -14,6 +14,9 @@ const basicTheme: GlobalThemeOverrides = {
     borderRadius: '6px',
     borderRadiusSmall: '4px',
   },
+  Drawer: {
+    borderRadius: 0,
+  },
 }
 
 export default basicTheme

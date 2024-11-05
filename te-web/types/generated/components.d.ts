@@ -7,11 +7,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ConfigPanel: typeof import('./../../src/components/system/config-panel/index.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NBreadcrumb: typeof import('naive-ui')['NBreadcrumb']
     NBreadcrumbItem: typeof import('naive-ui')['NBreadcrumbItem']
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NDivider: typeof import('naive-ui')['NDivider']
+    NDrawer: typeof import('naive-ui')['NDrawer']
+    NDrawerContent: typeof import('naive-ui')['NDrawerContent']
     NDropdown: typeof import('naive-ui')['NDropdown']
     NForm: typeof import('naive-ui')['NForm']
     NFormItem: typeof import('naive-ui')['NFormItem']
@@ -26,6 +30,7 @@ declare module 'vue' {
     PageContainer: typeof import('./../../src/components/internal/page-container/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SettingsDrawer: typeof import('./../../src/components/system/settings-drawer/index.vue')['default']
     SiderCollapse: typeof import('./../../src/components/system/sider-collapse/index.vue')['default']
     SwitchLocale: typeof import('./../../src/components/system/switch-locale/index.vue')['default']
     ToggleDark: typeof import('./../../src/components/system/toggle-dark/index.vue')['default']

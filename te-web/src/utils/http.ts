@@ -19,6 +19,10 @@ const http = createAlova({
   responded: {
     onSuccess: async (res) => {
       try {
+        console.log(res)
+        if (res.status > 200) {
+          throw new Error(t('common.internal-error'))
+        }
         const data = await res.json()
         switch (data?.code) {
           case 200:

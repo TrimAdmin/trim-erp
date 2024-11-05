@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import UserInfo from '@/layout/components/header/user-info.vue'
+import OpenSettings from '@/layout/components/header/open-settings.vue'
 import Breadcrumb from '../../components/header/breadcrumb.vue'
+import UserInfo from '../../components/header/user-info.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Breadcrumb from '../../components/header/breadcrumb.vue'
     <div class="flex items-center gap-3">
       <ToggleDark />
       <SwitchLocale />
+      <OpenSettings />
       <UserInfo />
     </div>
   </n-layout-header>

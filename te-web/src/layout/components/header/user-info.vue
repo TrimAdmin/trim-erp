@@ -3,10 +3,11 @@ import { useUserStore } from '@/store'
 import { DropdownMixedOption } from 'naive-ui/es/dropdown/src/interface'
 
 const userStore = useUserStore()
+const { t } = useLocale()
 
 const options: DropdownMixedOption[] = [
   {
-    label: '个人信息',
+    label: t('common.user-info'),
     key: 'UserInfo',
     icon: () => renderIcon('i-ri:account-circle-line'),
   },
@@ -14,7 +15,7 @@ const options: DropdownMixedOption[] = [
     type: 'divider',
   },
   {
-    label: '退出登录',
+    label: t('common.logout'),
     key: 'Logout',
     icon: () => renderIcon('i-ri:logout-circle-line'),
   },
@@ -32,10 +33,10 @@ function onSelect(key: string) {
       break
     case 'Logout':
       dialog.value.warning({
-        title: '提示',
-        content: '确定要退出登录吗？',
-        positiveText: '确定',
-        negativeText: '取消',
+        title: t('common.tips'),
+        content: t('toast.logout'),
+        positiveText: t('btn.confirm'),
+        negativeText: t('btn.cancel'),
         onPositiveClick: () => {
           userStore.handleLogout()
         },

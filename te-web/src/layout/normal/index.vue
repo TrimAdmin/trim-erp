@@ -10,6 +10,7 @@ import Sider from './sider/index.vue'
     <n-layout content-class="flex flex-col relative">
       <Tags />
       <Header />
+      <ConfigPanel />
       <n-layout-content content-class="p-4">
         <slot />
       </n-layout-content>
