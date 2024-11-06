@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CollapsePanel: typeof import('./../../src/components/internal/collapse-panel/index.vue')['default']
     ConfigPanel: typeof import('./../../src/components/system/config-panel/index.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NBacktop: typeof import('naive-ui')['NBacktop']
@@ -14,7 +15,9 @@ declare module 'vue' {
     NBreadcrumb: typeof import('naive-ui')['NBreadcrumb']
     NBreadcrumbItem: typeof import('naive-ui')['NBreadcrumbItem']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NDataTable: typeof import('naive-ui')['NDataTable']
     NDivider: typeof import('naive-ui')['NDivider']
     NDrawer: typeof import('naive-ui')['NDrawer']
     NDrawerContent: typeof import('naive-ui')['NDrawerContent']
@@ -33,10 +36,14 @@ declare module 'vue' {
     NScrollbar: typeof import('naive-ui')['NScrollbar']
     NSelect: typeof import('naive-ui')['NSelect']
     NSwitch: typeof import('naive-ui')['NSwitch']
+    NTable: typeof import('naive-ui')['NTable']
     NTooltip: typeof import('naive-ui')['NTooltip']
     PageContainer: typeof import('./../../src/components/internal/page-container/index.vue')['default']
+    PageFooter: typeof import('./../../src/components/internal/page-footer/index.vue')['default']
+    PageHeader: typeof import('./../../src/components/internal/page-header/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchPanel: typeof import('./../../src/components/internal/search-panel/index.vue')['default']
     SiderCollapse: typeof import('./../../src/components/system/sider-collapse/index.vue')['default']
     SwitchLocale: typeof import('./../../src/components/system/switch-locale/index.vue')['default']
     TableBar: typeof import('./../../src/components/internal/table-bar/index.vue')['default']

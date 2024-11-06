@@ -1,10 +1,11 @@
+import { MotionPlugin } from '@vueuse/motion'
 import { DataLoaderPlugin } from 'unplugin-vue-router/data-loaders'
 import { createApp } from 'vue'
 import App from './App.vue'
 import { registerDirectives } from './directives'
 import i18n from './locales'
-import router from './router'
 
+import router from './router'
 import pinia from './store'
 import '@/styles/index.scss'
 import 'uno.css'
@@ -18,6 +19,7 @@ app.use(DataLoaderPlugin, {
 })
 app.use(router)
 app.use(i18n)
+app.use(MotionPlugin)
 
 registerDirectives(app)
 

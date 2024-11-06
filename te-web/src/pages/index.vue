@@ -11,7 +11,7 @@ meta:
 </script>
 
 <template>
-  <PageContainer>
+  <PageContainer bg>
     <div v-for="item in 100" :key="item">
       111
     </div>

@@ -17,7 +17,12 @@ const configStore = useConfigStore()
         </div>
         <ConfigPanel />
         <n-layout-content class="pt-header-tags">
-          <div class="min-h-body flex flex-col p-4">
+          <div
+            class="min-h-body relative flex flex-col p-4"
+            :class="{
+              'has-[.page-footer]:pb-16': !configStore.config.feature.showFooter,
+            }"
+          >
             <slot />
           </div>
           <div v-if="configStore.config.feature.showFooter" class="h-footer flex-c">

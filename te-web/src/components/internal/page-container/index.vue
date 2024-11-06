@@ -1,19 +1,21 @@
 <script setup lang="ts">
 defineProps<{
   full?: boolean
+  bg?: boolean
 }>()
 </script>
 
 <template>
   <div
-    class="overflow-hidden rounded-md bg-bg-card p-4" :class="{
+    class="page-container" :class="{
       'flex-grow': full,
+      'bg-bg-card p-4': bg,
     }"
+    :bordered="false"
   >
     <slot />
   </div>
 </template>
 
 <style lang="scss" scoped>
-
 </style>

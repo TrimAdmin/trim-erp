@@ -10,9 +10,11 @@ meta:
 </script>
 
 <template>
-  <PageContainer>
-    user
-    <n-button v-auth="['system:user']" />
+  <PageContainer bg>
+    <SearchPanel />
+    <TableBar id="SystemUserList">
+      <n-data-table :columns="[{ key: 'username' }]" :data="[]" />
+    </TableBar>
   </PageContainer>
 </template>
 

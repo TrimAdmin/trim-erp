@@ -16,6 +16,19 @@ declare global {
     success: boolean
   }
 
+  interface ApiResponsePage<T = any> {
+    code: number
+    data: {
+      limit: number
+      page: number
+      pages: number
+      total: number
+      list: T[]
+    }
+    message: string
+    success: boolean
+  }
+
   interface TableConfig {
     [key: string]: {
       columns: []
