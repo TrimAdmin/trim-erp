@@ -1,9 +1,15 @@
 <script setup lang="ts">
-
+defineProps<{
+  full?: boolean
+}>()
 </script>
 
 <template>
-  <div class="h-full overflow-hidden rounded-md bg-bg-card p-4">
+  <div
+    class="overflow-hidden rounded-md bg-bg-card p-4" :class="{
+      'flex-grow': full,
+    }"
+  >
     <slot />
   </div>
 </template>

@@ -6,7 +6,7 @@ import UserInfo from '../../components/header/user-info.vue'
 
 <template>
   <n-layout-header
-    class="h-header flex-bc border-b-1 border-b-border border-b-solid px-4"
+    class="h-header flex-bc px-4"
   >
     <div class="flex items-center gap-2">
       <SiderCollapse />

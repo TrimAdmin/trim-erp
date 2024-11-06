@@ -4,13 +4,18 @@ const defaultConfig: TrimConfig = {
   theme: {
     name: 'orange',
     darkMode: false,
-    layout: 'normal',
     siderWidth: 200,
     headerHeight: 48,
     siderCollapsed: false,
-    contentScrollMode: 'content',
   },
+  layout: 'normal',
   locale: 'zhCN',
+  feature: {
+    showFooter: true,
+    showLogo: true,
+    showTags: true,
+    cacheTabs: true,
+  },
 }
 
 export default defaultConfig

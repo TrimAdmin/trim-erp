@@ -6,7 +6,9 @@ import {
 
 export interface TrimConfig {
   theme: Theme
+  layout: typeof layoutList[number]
   locale: typeof localeList[number]
+  feature: Feature
 }
 
 export type TrimUserConfig = Partial<TrimConfig>
@@ -14,9 +16,14 @@ export type TrimUserConfig = Partial<TrimConfig>
 interface Theme {
   name: typeof themeList[number]['value']
   darkMode: boolean
-  layout: typeof layoutList[number]
   siderWidth: number
   headerHeight: number
   siderCollapsed: boolean
-  contentScrollMode: 'page' | 'content'
+}
+
+interface Feature {
+  showFooter: boolean
+  showLogo: boolean
+  showTags: boolean
+  cacheTabs: boolean
 }

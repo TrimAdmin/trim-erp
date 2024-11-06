@@ -1,4 +1,5 @@
 import { TrimConfig } from '#/trim-config'
+import { themeList } from '@/constants/system'
 import trimConfig from '@/trim-config'
 import { useThemeStoreHook } from '..'
 
@@ -7,12 +8,18 @@ const useConfigStore = defineStore('config', () => {
 
   watchPostEffect(() => {
     document.documentElement.style.setProperty('--trim-header-height', `${config.value.theme.headerHeight}px`)
-    document.documentElement.style.setProperty('--trim-header-height-with-tabs', `${config.value.theme.headerHeight + 40}px`)
-    document.documentElement.style.setProperty('--trim-sider-width', `${config.value.theme.siderWidth}px`)
+    document.documentElement.style.setProperty('--trim-header-height-with-tags', `${config.value.theme.headerHeight + (config.value.feature.showTags ? 40 : 0)}px`)
+    document.documentElement.style.setProperty('--trim-sider-width', `${config.value.theme.siderCollapsed ? 64 : config.value.theme.siderWidth}px`)
+    document.documentElement.style.setProperty('--trim-footer-height', `${config.value.feature.showFooter ? 48 : 0}px`)
   })
 
   function changeDarkMode() {
     config.value.theme.darkMode = !config.value.theme.darkMode
+    useThemeStoreHook().updateThemeOverrides()
+  }
+
+  function changeTheme(theme: typeof themeList[number]['value']) {
+    config.value.theme.name = theme
     useThemeStoreHook().updateThemeOverrides()
   }
 
@@ -32,6 +39,7 @@ const useConfigStore = defineStore('config', () => {
     changeDarkMode,
     changeLocale,
     changeSiderCollapsed,
+    changeTheme,
   }
 }, {})
 

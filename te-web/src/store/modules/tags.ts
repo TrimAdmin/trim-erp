@@ -2,11 +2,21 @@ import { RouteRecordRaw } from 'vue-router'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
 const useTagsStore = defineStore('tags', () => {
-  const tagsList = ref<RouteRecordRaw[]>([])
+  const configStore = useConfigStoreHook()
+  const tagsList = ref<RouteRecordRaw[]>(JSON.parse(localStorage.getItem('trim__tags-list') ?? '[]') ?? [])
   const keepAliveList = computed<string[]>(() => tagsList.value.filter((tag) => tag.meta?.keepAlive).map((item) => item.name as string))
 
   const route = useRoute()
   const router = useRouter()
+
+  watchEffect(() => {
+    if (configStore.config.feature.cacheTabs) {
+      localStorage.setItem('trim__tags-list', JSON.stringify(tagsList.value))
+    }
+    else {
+      localStorage.removeItem('trim__tags-list')
+    }
+  })
 
   function addTag(route: RouteRecordRaw) {
     if (route.meta?.hideTab)

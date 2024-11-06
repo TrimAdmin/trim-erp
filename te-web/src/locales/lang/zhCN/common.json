@@ -15,7 +15,15 @@
   "logout": "退出登录",
   "config-panel": "设置面板",
   "config": {
-    "theme": "主题"
+    "theme": "主题",
+    "feature": "功能",
+    "dark-mode": "暗色模式",
+    "layout": "布局",
+    "layout-normal": "侧边栏布局",
+    "show-footer": "显示页脚",
+    "show-logo": "显示Logo",
+    "show-tags": "显示标签栏",
+    "cache-tabs": "标签栏缓存"
   },
   "theme": {
     "antd": "Ant Design",

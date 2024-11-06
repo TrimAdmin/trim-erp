@@ -5,7 +5,6 @@ import {
   GlobalThemeOverrides,
   lightTheme,
 } from 'naive-ui'
-import { VxeUI } from 'vxe-table'
 import { useConfigStoreHook } from '..'
 
 const useThemeStore = defineStore('theme', () => {
@@ -21,11 +20,9 @@ const useThemeStore = defineStore('theme', () => {
     })
     if (darkMode) {
       window.document.documentElement.classList.add('dark')
-      VxeUI.setTheme('dark')
     }
     else {
       window.document.documentElement.classList.remove('dark')
-      VxeUI.setTheme('light')
     }
   }
 

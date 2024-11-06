@@ -12,7 +12,9 @@ meta:
 
 <template>
   <PageContainer>
-    111
+    <div v-for="item in 100" :key="item">
+      111
+    </div>
   </PageContainer>
 </template>
 

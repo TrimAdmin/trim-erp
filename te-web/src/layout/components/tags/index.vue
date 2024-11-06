@@ -158,5 +158,7 @@ function handleSelect(key: string) {
   align-items: center;
   height: 40px;
   padding: 0 8px;
+
+  @apply bg-bg-body;
 }
 </style>

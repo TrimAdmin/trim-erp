@@ -6,7 +6,7 @@ import NormalLayout from './normal/index.vue'
 const configStore = useConfigStore()
 
 const layout = computed(() => {
-  switch (configStore.config.theme.layout) {
+  switch (configStore.config.layout) {
     case 'normal':
       return NormalLayout
     default:
