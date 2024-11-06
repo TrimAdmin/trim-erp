@@ -13,7 +13,9 @@ meta:
   <PageContainer bg>
     <SearchPanel />
     <TableBar id="SystemUserList">
-      <n-data-table :columns="[{ key: 'username' }]" :data="[]" />
+      <template #default="{ columns }">
+        <n-data-table :columns="columns" :data="[]" />
+      </template>
     </TableBar>
   </PageContainer>
 </template>

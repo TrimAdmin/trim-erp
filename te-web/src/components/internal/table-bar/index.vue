@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { buttonList } from '@/constants/table'
+import { TableColumns } from 'naive-ui/es/data-table/src/interface'
 
 withDefaults(defineProps<{
   id: string
   title?: string
+  columns?: TableColumns<any>
   rightButtons?: (typeof buttonList[number])[]
 }>(), {
   rightButtons: () => ['refresh', 'fullscreen'],
@@ -40,13 +42,15 @@ const slots = useSlots()
         <i v-if="rightButtons.includes('fullscreen')" :class="fullscreen ? 'i-ri:fullscreen-exit-line' : 'i-ri:fullscreen-line'" @click="setFullscreen(!fullscreen)" />
       </div>
     </div>
-    <slot />
+    <slot :columns />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .table-bar {
   transition: all 250ms var(--n-cubic-bezier-ease-in-out);
+
+  @apply bg-bg-card;
 
   i {
     font-size: 18px;

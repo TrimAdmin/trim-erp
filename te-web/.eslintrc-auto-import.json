@@ -354,6 +354,7 @@
     "parseJson": true,
     "useTableStore": true,
     "useTableStoreHook": true,
-    "loadingBar": true
+    "loadingBar": true,
+    "useTable": true
   }
 }

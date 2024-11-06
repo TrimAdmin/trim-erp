@@ -286,6 +286,7 @@ declare global {
   const useStyleTag: typeof import('@vueuse/core')['useStyleTag']
   const useSupported: typeof import('@vueuse/core')['useSupported']
   const useSwipe: typeof import('@vueuse/core')['useSwipe']
+  const useTable: typeof import('../../src/hooks/useTable')['useTable']
   const useTableStore: typeof import('../../src/store/index')['useTableStore']
   const useTableStoreHook: typeof import('../../src/store/index')['useTableStoreHook']
   const useTagsStore: typeof import('../../src/store/index')['useTagsStore']
