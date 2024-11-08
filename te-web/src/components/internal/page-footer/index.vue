@@ -19,7 +19,16 @@ onBeforeRouteLeave(() => {
 </script>
 
 <template>
-  <div v-if="show" v-motion data-calc-fixed :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :delay="10" :duration="100" class="page-footer">
+  <div
+    v-if="show"
+    v-motion
+    data-calc-fixed
+    :initial="{ opacity: 0 }"
+    :enter="{ opacity: 1 }"
+    :delay="10"
+    :duration="100"
+    class="page-footer"
+  >
     <n-button>{{ $t('btn.cancel') }}</n-button>
     <slot />
   </div>

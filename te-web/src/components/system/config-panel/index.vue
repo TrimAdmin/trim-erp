@@ -39,7 +39,13 @@ async function handleCopyConfig() {
 </script>
 
 <template>
-  <n-drawer v-model:show="show" width="400px" auto-focus native-scrollbar block-scroll>
+  <n-drawer
+    v-model:show="show"
+    width="400px"
+    auto-focus
+    native-scrollbar
+    block-scroll
+  >
     <n-drawer-content :title="$t('common.config-panel')" closable>
       <n-divider>
         {{ $t('common.config.theme') }}
@@ -75,7 +81,8 @@ async function handleCopyConfig() {
               {{ $t('common.config.layout-normal') }}
               <template #trigger>
                 <div
-                  class="layout" :class="{
+                  class="layout"
+                  :class="{
                     active: configStore.config.layout === 'normal',
                   }"
                 >

@@ -136,7 +136,15 @@ function handleSelect(key: string) {
 <template>
   <VueDraggable v-model="tagsStore.tagsList" :disabled="tagsStore.tagsList.length <= 1" class="trim-tags">
     <template v-for="item in tagsStore.tagsList" :key="item.name">
-      <component :is="Card" :active="route.name === item.name" :closable="tagsStore.tagsList.length > 1" :tab="item" @close="handleClose(item.name as keyof RouteNamedMap)" @contextmenu="(e: MouseEvent) => handleContextMenu(e, item.name as keyof RouteNamedMap)" @click.stop="() => onTagClick(item.name as keyof RouteNamedMap)" />
+      <component
+        :is="Card"
+        :active="route.name === item.name"
+        :closable="tagsStore.tagsList.length > 1"
+        :tab="item"
+        @close="handleClose(item.name as keyof RouteNamedMap)"
+        @contextmenu="(e: MouseEvent) => handleContextMenu(e, item.name as keyof RouteNamedMap)"
+        @click.stop="() => onTagClick(item.name as keyof RouteNamedMap)"
+      />
     </template>
   </VueDraggable>
   <n-dropdown

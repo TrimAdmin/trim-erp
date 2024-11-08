@@ -22,6 +22,14 @@ export default antfu({
           'style',
         ],
       }],
+      'vue/max-attributes-per-line': ['error', {
+        singleline: {
+          max: 3,
+        },
+        multiline: {
+          max: 1,
+        },
+      }],
     },
   },
   jsonc: true,

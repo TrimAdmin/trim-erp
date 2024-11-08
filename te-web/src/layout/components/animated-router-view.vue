@@ -2,15 +2,17 @@
 import { useTagsStore } from '@/store'
 
 const tagsStore = useTagsStore()
+
+console.log(tagsStore.keepAliveList)
 </script>
 
 <template>
   <RouterView v-slot="{ Component, route }">
-    <KeepAlive :include="tagsStore.keepAliveList">
-      <Transition name="fade-left" appear mode="out-in">
+    <Transition name="fade-left" appear mode="out-in">
+      <KeepAlive :include="tagsStore.keepAliveList">
         <component :is="Component" :key="route.name" />
-      </Transition>
-    </KeepAlive>
+      </KeepAlive>
+    </Transition>
   </RouterView>
 </template>
 

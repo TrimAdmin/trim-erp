@@ -21,7 +21,7 @@ export function vitePlugins(mode: string): UserConfig['plugins'] {
     vueRouter({
       dts: './types/generated/typed-router.d.ts',
       routesFolder: ['src/pages'],
-      extensions: ['.vue', '.tsx'],
+      extensions: ['.vue'],
       routeBlockLang: 'yaml',
     }),
     vue(),

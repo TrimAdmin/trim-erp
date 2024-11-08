@@ -30,5 +30,27 @@
     "orange": "熔岩橙",
     "forest": "森林绿"
   },
-  "list": "列表"
+  "list": "列表",
+  "custom-columns": "列设置",
+  "table-size": "尺寸",
+  "column-title": "列名",
+  "column-width": "列宽",
+  "column-fixed": "列固定",
+  "column-hide": "列隐藏",
+  "left-fixed": "左侧",
+  "not-fixed": "不固定",
+  "right-fixed": "右侧",
+  "table-total": "共 {value} 项",
+  "table-checked": "当前选中 {value} 项",
+  "sort": "排序",
+  "align": "对齐",
+  "align-left": "左对齐",
+  "align-center": "居中",
+  "align-right": "右对齐",
+  "seq": "序号",
+  "loose": "宽松",
+  "normal": "普通",
+  "tight": "紧凑",
+  "createTime": "创建时间",
+  "updateTime": "更新时间"
 }

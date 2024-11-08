@@ -1,4 +1,5 @@
 import { MenuOption } from 'naive-ui'
+import { TableColumn } from 'naive-ui/es/data-table/src/interface'
 
 declare global {
   type TrimMenuOption = MenuOption & {
@@ -18,20 +19,34 @@ declare global {
 
   interface ApiResponsePage<T = any> {
     code: number
-    data: {
-      limit: number
-      page: number
-      pages: number
-      total: number
-      list: T[]
-    }
+    data: PageData<T>
     message: string
     success: boolean
   }
 
+  interface PageData<T = any> {
+    limit: number
+    page: number
+    pages: number
+    total: number
+    list: T[]
+  }
+
+  type TableColumns<T = any> = (TableColumn<T> & {
+    hide?: boolean
+    key: string
+  })[]
+
   interface TableConfig {
     [key: string]: {
-      columns: []
+      hideColumns: string[]
+      fixed: Record<string, 'left' | 'right' | undefined>
+      align: Record<string, 'left' | 'right' | 'center'>
+      width: Record<string, number>
     } | undefined
+  }
+
+  interface TableInstance {
+    getTableData: () => void
   }
 }

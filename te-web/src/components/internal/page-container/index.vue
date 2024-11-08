@@ -7,8 +7,9 @@ defineProps<{
 
 <template>
   <div
-    class="page-container" :class="{
-      'flex-grow': full,
+    class="page-container"
+    :class="{
+      'flex-grow flex flex-col': full,
       'bg-bg-card p-4': bg,
     }"
     :bordered="false"

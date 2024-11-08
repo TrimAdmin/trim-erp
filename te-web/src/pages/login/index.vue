@@ -56,7 +56,14 @@ async function handleLogin() {
         {{ $t('login.welcome') }}{{ title }}
       </h1>
       <div class="mx-auto mt-2 h-2 w-[80px] bg-primary" />
-      <n-form ref="loginFormRef" :rules="loginFormRules" :model="loginForm" class="h-full min-h-0 flex flex-col justify-between pt-[72px]" :show-label="false" size="large">
+      <n-form
+        ref="loginFormRef"
+        :rules="loginFormRules"
+        :model="loginForm"
+        class="h-full min-h-0 flex flex-col justify-between pt-[72px]"
+        :show-label="false"
+        size="large"
+      >
         <div>
           <n-form-item path="username">
             <n-input v-model:value="loginForm.username" round :placeholder="$t('common.phinput', { field: $t('login.username') })">
@@ -66,7 +73,13 @@ async function handleLogin() {
             </n-input>
           </n-form-item>
           <n-form-item path="password">
-            <n-input v-model:value="loginForm.password" round type="password" show-password-on="click" :placeholder="$t('common.phinput', { field: $t('login.password') })">
+            <n-input
+              v-model:value="loginForm.password"
+              round
+              type="password"
+              show-password-on="click"
+              :placeholder="$t('common.phinput', { field: $t('login.password') })"
+            >
               <template #prefix>
                 <i class="i-ri:lock-2-line" />
               </template>
@@ -74,7 +87,14 @@ async function handleLogin() {
           </n-form-item>
         </div>
         <n-form-item>
-          <n-button type="primary" round block class="h-[56px]" :loading @click="handleLogin">
+          <n-button
+            type="primary"
+            round
+            block
+            class="h-[56px]"
+            :loading
+            @click="handleLogin"
+          >
             {{ $t('login.login') }}
           </n-button>
         </n-form-item>

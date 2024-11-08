@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CollapsePanel: typeof import('./../../src/components/internal/collapse-panel/index.vue')['default']
+    CommonTable: typeof import('./../../src/components/internal/common-table/index.vue')['default']
     ConfigPanel: typeof import('./../../src/components/system/config-panel/index.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NBacktop: typeof import('naive-ui')['NBacktop']
@@ -33,6 +34,9 @@ declare module 'vue' {
     NList: typeof import('naive-ui')['NList']
     NListItem: typeof import('naive-ui')['NListItem']
     NMenu: typeof import('naive-ui')['NMenu']
+    NPagination: typeof import('naive-ui')['NPagination']
+    NPopconfirm: typeof import('naive-ui')['NPopconfirm']
+    NResult: typeof import('naive-ui')['NResult']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
     NSelect: typeof import('naive-ui')['NSelect']
     NSwitch: typeof import('naive-ui')['NSwitch']
