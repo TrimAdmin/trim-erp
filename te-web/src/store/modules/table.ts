@@ -1,10 +1,14 @@
+import { cloneDeep } from 'es-toolkit'
+
 const useTableStore = defineStore('table', () => {
   const tableConfig = useLocalStorage<TableConfig>('trim__table-config', {})
 
   function getColumns(id: string, columns: TableColumns) {
     const config = tableConfig.value[id]
+    const clonedColumns = cloneDeep(columns)
+
     if (config) {
-      return columns.map((item) => {
+      return clonedColumns.map((item) => {
         if (config?.hideColumns.includes(item.key)) {
           item.hide = true
         }
@@ -20,23 +24,25 @@ const useTableStore = defineStore('table', () => {
         return item
       })
     }
-    return columns
+    return clonedColumns
   }
 
   function upsertColumnConfig(id: string, columns: TableColumns) {
+    const clonedColumns = cloneDeep(columns)
+
     tableConfig.value[id] = {
-      hideColumns: columns.map((item) => item.hide ? item.key : '').filter(Boolean),
-      fixed: Object.fromEntries(columns.map((item) => {
+      hideColumns: clonedColumns.map((item) => item.hide ? item.key : '').filter(Boolean),
+      fixed: Object.fromEntries(clonedColumns.map((item) => {
         if (item.fixed)
           return [item.key, item.fixed]
         return []
       })),
-      width: Object.fromEntries(columns.map((item) => {
+      width: Object.fromEntries(clonedColumns.map((item) => {
         if (item.width)
           return [item.key, item.width]
         return []
       })),
-      align: Object.fromEntries(columns.map((item) => {
+      align: Object.fromEntries(clonedColumns.map((item) => {
         if (item.align)
           return [item.key, item.align]
         return []

@@ -35,11 +35,16 @@ const tableStore = useTableStore()
 
 // 抽屉中显示的列数据
 const storageColumns = ref<TableColumns>(tableStore.getColumns(props.id, props.columns))
+
+function getTableColumns() {
+  return (tableStore.getColumns(props.id, props.columns) ?? props.columns).map((item) => ({
+    ...item,
+    resizable: item.resizable ?? true,
+  })).filter((item) => !item.hide)
+}
+
 // 返回给表格的列数据
-const tableColumns = ref<TableColumns>((tableStore.getColumns(props.id, props.columns) ?? props.columns).map((item) => ({
-  ...item,
-  resizable: item.resizable ?? true,
-})).filter((item) => !item.hide))
+const tableColumns = ref<TableColumns>(getTableColumns())
 
 // 抽屉中表格的列
 const customColumns: TableColumns = [
@@ -123,6 +128,8 @@ const customColumns: TableColumns = [
 // 设为默认
 function handleReset() {
   tableStore.resetColumnConfig(props.id)
+  storageColumns.value = cloneDeep(props.columns)
+  tableColumns.value = getTableColumns()
   setShowCustom(false)
 }
 

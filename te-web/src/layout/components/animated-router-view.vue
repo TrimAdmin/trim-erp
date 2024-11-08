@@ -2,8 +2,6 @@
 import { useTagsStore } from '@/store'
 
 const tagsStore = useTagsStore()
-
-console.log(tagsStore.keepAliveList)
 </script>
 
 <template>
