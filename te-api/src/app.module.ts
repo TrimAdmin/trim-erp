@@ -13,6 +13,7 @@ import {
   QueryInfo,
 } from 'nestjs-prisma'
 import config from './config'
+import { QiniuModule } from './modules/common/qiniu/qiniu.module'
 import { SystemModule } from './modules/system/system.module'
 import { extendedPrismaClient } from './prisma/prisma.extension'
 
@@ -21,7 +22,16 @@ import { extendedPrismaClient } from './prisma/prisma.extension'
     // config
     ConfigModule.forRoot({
       load: [config],
-      envFilePath: ['.env', '.env.dev', '.env.prod'],
+      envFilePath: [
+        // 通用
+        '.env',
+        // 开发环境
+        // '.env.dev',
+        // 本地环境
+        '.env.local',
+        // 开发环境
+        '.env.prod',
+      ],
     }),
     // 全局注册自定义prisma
     CustomPrismaModule.forRootAsync({
@@ -41,6 +51,8 @@ import { extendedPrismaClient } from './prisma/prisma.extension'
         })],
       },
     }),
+    // 七牛
+    QiniuModule,
     // 系统管理
     SystemModule,
   ],

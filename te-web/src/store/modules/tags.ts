@@ -10,7 +10,7 @@ const useTagsStore = defineStore('tags', () => {
   const router = useRouter()
 
   watchEffect(() => {
-    if (configStore.config.feature.cacheTabs) {
+    if (configStore.config.feature?.cacheTabs) {
       localStorage.setItem('trim__tags-list', JSON.stringify(tagsList.value))
     }
     else {

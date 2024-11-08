@@ -8,6 +8,12 @@ interface ConfigType {
   jwt: {
     secret: string
   }
+  qiniu: {
+    ak: string
+    sk: string
+    domain: string
+    bucket: string
+  }
 }
 
 const config: ConfigFactory<ConfigType> = () => {
@@ -19,6 +25,12 @@ const config: ConfigFactory<ConfigType> = () => {
     },
     jwt: {
       secret: process.env.JWT_SECRET || 'secret',
+    },
+    qiniu: {
+      ak: process.env.FILES_ACCESS_KEY || '',
+      sk: process.env.FILES_SECRET_KEY || '',
+      domain: process.env.FILES_DOMAIN || '',
+      bucket: process.env.FILES_BUCKET || '',
     },
   }
 }
