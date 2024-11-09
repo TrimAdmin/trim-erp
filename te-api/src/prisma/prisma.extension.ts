@@ -4,6 +4,7 @@ import { pagination } from 'prisma-extension-pagination'
 import { createSoftDeleteExtension } from 'prisma-extension-soft-delete'
 
 export const extendedPrismaClient = new PrismaClient().$extends({
+
   result: {
     $allModels: {
       createTime: {

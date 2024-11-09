@@ -3,7 +3,6 @@ import { buttonList } from '@/constants/table'
 import { cloneDeep } from 'es-toolkit'
 import {
   DropdownOption,
-  NInputNumber,
   NRadioButton,
   NRadioGroup,
   NSwitch,
@@ -65,19 +64,6 @@ const customColumns: TableColumns = [
     title: t('common.column-title'),
     key: 'title',
     width: 160,
-  },
-  {
-    title: t('common.column-width'),
-    key: 'width',
-    width: 160,
-    render: (row, index) => h(NInputNumber, {
-      value: row.width as number,
-      onUpdateValue: (value) => {
-        storageColumns.value[index].width = value ?? undefined
-      },
-      showButton: false,
-      clearable: true,
-    }),
   },
   {
     title: t('common.align'),
@@ -216,7 +202,7 @@ const tableSizeOptions = computed<DropdownOption[]>(() => [
     <!-- 默认表格插槽 -->
     <slot :storage-columns="tableColumns" :size="tableSize" />
     <!-- 列设置抽屉 -->
-    <n-drawer v-model:show="showCustom" width="900px">
+    <n-drawer v-model:show="showCustom" width="720px">
       <n-drawer-content :title="$t('common.custom-columns')" closable>
         <n-data-table :data="storageColumns" :columns="customColumns" :single-line="false" />
         <template #footer>

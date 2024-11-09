@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { cloneDeep } from 'es-toolkit'
 import { DataTableInst } from 'naive-ui'
 
 const props = withDefaults(defineProps<{
@@ -21,7 +22,7 @@ const props = withDefaults(defineProps<{
 const { t } = useLocale()
 
 const computedColumns = computed<TableColumns>(() => {
-  const columns = [...props.columns]
+  const columns = cloneDeep(props.columns)
   if (props.seq) {
     columns.splice(0, 0, {
       key: 'index',
@@ -42,7 +43,10 @@ const computedColumns = computed<TableColumns>(() => {
       multiple: props.multiple,
     })
   }
-  return columns
+  return columns.map((item) => ({
+    ...item,
+    title: () => h('span', {}, item.title),
+  }))
 })
 
 const page = ref<number>(1)
@@ -80,8 +84,6 @@ const checkedRowKeys = defineModel<string[]>('checkedRowKeys')
 defineExpose({
   getTableData,
 })
-
-// 拖拽
 </script>
 
 <template>

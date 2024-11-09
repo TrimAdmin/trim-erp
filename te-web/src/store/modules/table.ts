@@ -18,9 +18,6 @@ const useTableStore = defineStore('table', () => {
         if (Object.keys(config.align ?? {}).includes(item.key)) {
           item.align = config.align[item.key]
         }
-        if (Object.keys(config.width ?? {}).includes(item.key)) {
-          item.width = config.width[item.key]
-        }
         return item
       })
     }
@@ -35,11 +32,6 @@ const useTableStore = defineStore('table', () => {
       fixed: Object.fromEntries(clonedColumns.map((item) => {
         if (item.fixed)
           return [item.key, item.fixed]
-        return []
-      })),
-      width: Object.fromEntries(clonedColumns.map((item) => {
-        if (item.width)
-          return [item.key, item.width]
         return []
       })),
       align: Object.fromEntries(clonedColumns.map((item) => {

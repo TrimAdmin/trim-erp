@@ -38,6 +38,7 @@ model SysUser {
   phone       String?       @unique
   status      Int           @default(1)
   sex         Sex           @default(UNKNOWN)
+  avatar      String?
   SysUserDept SysUserDept[]
   SysUserRole SysUserRole[]
 

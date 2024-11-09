@@ -1,5 +1,6 @@
 import { MenuOption } from 'naive-ui'
 import { TableColumn } from 'naive-ui/es/data-table/src/interface'
+import { VNode } from 'vue'
 
 declare global {
   type TrimMenuOption = MenuOption & {
@@ -35,6 +36,7 @@ declare global {
   type TableColumns<T = any> = (TableColumn<T> & {
     hide?: boolean
     key: string
+    title?: string | (() => VNode)
   })[]
 
   interface TableConfig {
@@ -42,7 +44,6 @@ declare global {
       hideColumns: string[]
       fixed: Record<string, 'left' | 'right' | undefined>
       align: Record<string, 'left' | 'right' | 'center'>
-      width: Record<string, number>
     } | undefined
   }
 
