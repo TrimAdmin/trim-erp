@@ -4,7 +4,7 @@ const defaultConfig: TrimConfig = {
   theme: {
     name: 'orange',
     darkMode: false,
-    siderWidth: 200,
+    siderWidth: 240,
     headerHeight: 48,
     siderCollapsed: false,
   },

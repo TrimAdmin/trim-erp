@@ -45,6 +45,10 @@ const computedColumns = computed<TableColumns>(() => {
   }
   return columns.map((item) => ({
     ...item,
+    ellipsis: item.ellipsis ?? {
+      tooltip: true,
+    },
+    ellipsisComponent: 'ellipsis',
     title: () => h('span', {}, item.title),
   }))
 })
