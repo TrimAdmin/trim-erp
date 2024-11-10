@@ -7,6 +7,7 @@ definePage({
   meta: {
     title: '系统管理',
     icon: 'i-ep:setting',
+    titleI18n: 'menu.system.title',
   },
 })
 </script>

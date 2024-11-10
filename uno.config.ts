@@ -12,7 +12,10 @@ import {
 
 export default defineConfig({
   content: {
-    pipeline: ['./te-web/**/*.{ts,tsx,vue}'],
+    pipeline: {
+      include: [/\.(vue|[jt]sx?|html)($|\?)/],
+      exclude: [/te-api/, /dist/, /node_modules/],
+    },
   },
   theme: {
     colors: {
@@ -52,7 +55,6 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
       prefix: 'i-',
-      warn: true,
     }),
     presetAttributify(),
     presetTypography(),

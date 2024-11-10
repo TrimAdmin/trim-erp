@@ -18,7 +18,7 @@ const configStore = useConfigStore()
         <ConfigPanel />
         <n-layout-content class="pt-header-tags">
           <div
-            class="min-h-body relative flex flex-col p-4"
+            class="min-h-body relative flex flex-col"
             :class="{
               'has-[.page-footer]:pb-16': !configStore.config.feature.showFooter,
             }"

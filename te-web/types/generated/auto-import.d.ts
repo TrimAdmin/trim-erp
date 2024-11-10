@@ -48,6 +48,8 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']
   const http: typeof import('../../src/utils/http')['default']
+  const iconList: typeof import('../../src/utils/icons')['iconList']
+  const icons: typeof import('../../src/utils/icons')['default']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
   const injectLocal: typeof import('@vueuse/core')['injectLocal']

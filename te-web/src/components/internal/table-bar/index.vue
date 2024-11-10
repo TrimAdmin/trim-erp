@@ -251,6 +251,7 @@ const tableSizeOptions = computed<DropdownOption[]>(() => [
     left: 0;
     width: 100vw;
     height: 100vh;
+    margin-top: 0;
   }
 }
 </style>

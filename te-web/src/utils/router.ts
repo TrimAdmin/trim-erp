@@ -16,7 +16,7 @@ export function generateMenu(routes: RouteRecordRaw[]): MenuOption[] {
       key: menu.name as string,
       show: !menu.meta?.hideMenu,
       icon: menu.meta?.icon
-        ? () => h('span', {
+        ? () => h('i', {
             class: menu.meta?.icon,
           })
         : undefined,

@@ -3,6 +3,7 @@
   "name": "SystemUser",
   "meta":{
     "title": "用户管理",
+    "titleI18n": "menu.system.user",
     "icon": "i-ep:user",
     "keepAlive": true
   }
@@ -25,7 +26,14 @@ const {
 </script>
 
 <template>
-  <PageContainer full>
+  <PageContainer>
+    <template #header>
+      <n-page-header>
+        <template #title>
+          {{ $t('menu.system.user') }}
+        </template>
+      </n-page-header>
+    </template>
     <SearchPanel />
     <TableBar
       id="SystemUserList"

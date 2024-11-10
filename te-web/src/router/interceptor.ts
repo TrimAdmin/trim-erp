@@ -19,7 +19,7 @@ export function routerInterceptor(router: Router) {
       })
     }
 
-    // 推到tabsList
+    // 推到tagsList
     const tagsStore = useTagsStoreHook()
     tagsStore.addTag(to as unknown as RouteRecordRaw)
     next()

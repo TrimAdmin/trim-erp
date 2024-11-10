@@ -7,6 +7,7 @@ import i18n from './locales'
 
 import router from './router'
 import pinia from './store'
+import './utils/icons'
 import '@/styles/index.scss'
 import 'uno.css'
 import 'vfonts/Inter.css'

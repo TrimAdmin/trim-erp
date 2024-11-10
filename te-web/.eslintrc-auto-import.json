@@ -355,6 +355,8 @@
     "useTableStore": true,
     "useTableStoreHook": true,
     "loadingBar": true,
-    "useTable": true
+    "useTable": true,
+    "iconList": true,
+    "icons": true
   }
 }
