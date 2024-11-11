@@ -357,6 +357,7 @@
     "loadingBar": true,
     "useTable": true,
     "iconList": true,
-    "icons": true
+    "icons": true,
+    "addOfflineIcon": true
   }
 }

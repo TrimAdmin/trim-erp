@@ -1,10 +1,12 @@
+import { MenuOption } from 'naive-ui'
+
 const useMenuStore = defineStore('menu', () => {
-  const menu = ref<TrimMenuOption[]>([])
+  const menu = ref<MenuOption[]>([])
   const permissionList = ref<string[]>([])
   // @ts-expect-error not infinity
-  const flatMenu = computed<TrimMenuOptionBreadcrumb[]>(() => getFlatMenu(menu.value))
+  const flatMenu = computed<MenuOption[]>(() => getFlatMenu(menu.value))
 
-  function getFlatMenu(menuList: TrimMenuOption[]): TrimMenuOptionBreadcrumb[] {
+  function getFlatMenu(menuList: MenuOption[]): MenuOption[] {
     return menuList.reduce((res, menu) => {
       res.push(menu.children && menu.children.length
         ? {
@@ -19,18 +21,18 @@ const useMenuStore = defineStore('menu', () => {
         })))
       }
       return res
-    }, [] as TrimMenuOptionBreadcrumb[])
+    }, [] as MenuOption[])
   }
 
   // 获取面包屑列表
   function getBreadcrumbList(routeName: string) {
-    const res: TrimMenuOption[] = []
+    const res: MenuOption[] = []
     getParentMenu(routeName)
 
     function getParentMenu(routeName: string) {
       const currentMenu = flatMenu.value.find((item) => item.key === routeName)
       if (currentMenu?.parent) {
-        getParentMenu(currentMenu?.parent?.key as string)
+        getParentMenu((currentMenu?.parent as MenuOption)?.key as string)
       }
       if (currentMenu) {
         res.push(currentMenu)

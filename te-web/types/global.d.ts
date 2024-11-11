@@ -1,16 +1,7 @@
-import { MenuOption } from 'naive-ui'
 import { TableColumn } from 'naive-ui/es/data-table/src/interface'
 import { VNode } from 'vue'
 
 declare global {
-  type TrimMenuOption = MenuOption & {
-    i18n?: string
-  }
-
-  type TrimMenuOptionBreadcrumb = TrimMenuOption & {
-    parent?: Omit<TrimMenuOption, 'children'>
-  }
-
   interface ApiResponse<T = any> {
     code: number
     data: T
