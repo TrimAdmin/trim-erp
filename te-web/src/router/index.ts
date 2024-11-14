@@ -22,7 +22,7 @@ const router = createRouter({
 
 routerInterceptor(router)
 
-if (import.meta.hot) {
+if (import.meta.env.DEV) {
   handleHotUpdate(router)
 }
 
