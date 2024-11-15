@@ -154,53 +154,55 @@ const tableSizeOptions = computed<DropdownOption[]>(() => [
       fullscreen,
     }"
   >
-    <div v-if="slots.left || slots.right || rightButtons" class="mb-4 flex-bc">
-      <div class="flex-c">
-        <span v-if="showSelectCount">
-          {{ $t('common.table-checked', { value: selectCount }) }}
-        </span>
-        <slot name="left" />
-      </div>
-      <div class="flex-c gap-4">
-        <slot name="right" />
-        <!-- 刷新 -->
-        <n-tooltip>
-          {{ $t('btn.refresh') }}
-          <template #trigger>
-            <i v-if="rightButtons.includes('refresh')" class="i-ep:refresh" @click="emits('refresh')" />
-          </template>
-        </n-tooltip>
-        <!-- 尺寸 -->
-        <n-dropdown trigger="click" :options="tableSizeOptions" @select="value => tableSize = value">
+    <div class="h-full flex flex-col">
+      <div v-if="slots.left || slots.right || rightButtons" class="mb-4 flex-bc">
+        <div class="flex-c">
+          <span v-if="showSelectCount">
+            {{ $t('common.table-checked', { value: selectCount }) }}
+          </span>
+          <slot name="left" />
+        </div>
+        <div class="flex-c gap-4">
+          <slot name="right" />
+          <!-- 刷新 -->
           <n-tooltip>
-            {{ $t('common.table-size') }}
+            {{ $t('btn.refresh') }}
             <template #trigger>
-              <i v-if="rightButtons.includes('custom')" class="i-ri:expand-height-line" />
+              <i v-if="rightButtons.includes('refresh')" class="i-ep:refresh" @click="emits('refresh')" />
             </template>
           </n-tooltip>
-        </n-dropdown>
-        <!-- 全屏 -->
-        <n-tooltip>
-          {{ fullscreen ? $t('btn.exit-fullscreen') : $t('btn.fullscreen') }}
-          <template #trigger>
-            <i
-              v-if="rightButtons.includes('fullscreen')"
-              :class="fullscreen ? 'i-ri:fullscreen-exit-line' : 'i-ri:fullscreen-line'"
-              @click="setFullscreen(!fullscreen)"
-            />
-          </template>
-        </n-tooltip>
-        <!-- 自定义列设置 -->
-        <n-tooltip>
-          {{ $t('common.custom-columns') }}
-          <template #trigger>
-            <i v-if="rightButtons.includes('custom')" class="i-ri:list-settings-line" @click="setShowCustom(true)" />
-          </template>
-        </n-tooltip>
+          <!-- 尺寸 -->
+          <n-dropdown trigger="click" :options="tableSizeOptions" @select="value => tableSize = value">
+            <n-tooltip>
+              {{ $t('common.table-size') }}
+              <template #trigger>
+                <i v-if="rightButtons.includes('custom')" class="i-ri:expand-height-line" />
+              </template>
+            </n-tooltip>
+          </n-dropdown>
+          <!-- 全屏 -->
+          <n-tooltip>
+            {{ fullscreen ? $t('btn.exit-fullscreen') : $t('btn.fullscreen') }}
+            <template #trigger>
+              <i
+                v-if="rightButtons.includes('fullscreen')"
+                :class="fullscreen ? 'i-ri:fullscreen-exit-line' : 'i-ri:fullscreen-line'"
+                @click="setFullscreen(!fullscreen)"
+              />
+            </template>
+          </n-tooltip>
+          <!-- 自定义列设置 -->
+          <n-tooltip>
+            {{ $t('common.custom-columns') }}
+            <template #trigger>
+              <i v-if="rightButtons.includes('custom')" class="i-ri:list-settings-line" @click="setShowCustom(true)" />
+            </template>
+          </n-tooltip>
+        </div>
       </div>
+      <!-- 默认表格插槽 -->
+      <slot :storage-columns="tableColumns" :size="tableSize" />
     </div>
-    <!-- 默认表格插槽 -->
-    <slot :storage-columns="tableColumns" :size="tableSize" />
     <!-- 列设置抽屉 -->
     <n-drawer v-model:show="showCustom" width="720px">
       <n-drawer-content :title="$t('common.custom-columns')" closable>

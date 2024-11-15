@@ -22,6 +22,7 @@ const {
   tableRef,
   onSearch,
   checkedRowKeys,
+  tableSearchForm,
 } = useList()
 </script>
 
@@ -34,7 +35,24 @@ const {
         </template>
       </n-page-header>
     </template>
-    <SearchPanel />
+    <SearchPanel v-model="tableSearchForm" @refresh="onSearch">
+      <template #default="{ searchForm }">
+        <n-form-item label="用户名">
+          <n-input v-model:value="searchForm.username" />
+        </n-form-item>
+        <n-form-item>
+          <n-input />
+        </n-form-item>
+      </template>
+      <template #hide>
+        <n-form-item>
+          <n-input />
+        </n-form-item>
+        <n-form-item>
+          <n-input />
+        </n-form-item>
+      </template>
+    </SearchPanel>
     <TableBar
       id="SystemUserList"
       class="flex-1"
@@ -48,6 +66,7 @@ const {
           v-model:checked-row-keys="checkedRowKeys"
           :size
           :columns="storageColumns"
+          :search-form="tableSearchForm"
           api="system/user/page"
         />
       </template>

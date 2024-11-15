@@ -1,6 +1,7 @@
 export function useList() {
   const { t } = useLocale()
   const tableRef = shallowRef<TableInstance>()
+  const tableSearchForm = ref()
 
   const columns: TableColumns = [
     {
@@ -28,5 +29,6 @@ export function useList() {
     tableRef,
     onSearch,
     checkedRowKeys,
+    tableSearchForm,
   }
 }

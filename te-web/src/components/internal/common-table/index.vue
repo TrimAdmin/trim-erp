@@ -91,42 +91,40 @@ defineExpose({
 </script>
 
 <template>
-  <div>
-    <n-data-table
-      ref="tableRef"
-      v-model:checked-row-keys="checkedRowKeys"
-      :size
-      :row-key="row => row.id"
-      :columns="computedColumns"
-      :data="tableData"
-      :loading
-      :single-line="false"
-      striped
-      :pagination="{
-        page,
-        onUpdatePage: value => {
-          page = value
-          getTableData()
-        },
-        size,
-        pageSize: limit,
-        onUpdatePageSize: value => {
-          limit = value
-          getTableData()
-        },
-        itemCount: total,
-        showQuickJumper: true,
-        showSizePicker: true,
-        displayOrder: ['size-picker', 'pages', 'quick-jumper'],
-        pageSizes: [10, 20, 50, 100],
-        prefix: () => $t('common.table-total', { value: total }),
-        defaultPage: 1,
-        defaultPageSize: 10,
-      }"
-      pagination-behavior-on-filter="first"
-      remote
-    />
-  </div>
+  <n-data-table
+    ref="tableRef"
+    v-model:checked-row-keys="checkedRowKeys"
+    :size
+    :row-key="row => row.id"
+    :columns="computedColumns"
+    :data="tableData"
+    :loading
+    striped
+    class="flex-grow"
+    :pagination="{
+      page,
+      onUpdatePage: value => {
+        page = value
+        getTableData()
+      },
+      size,
+      pageSize: limit,
+      onUpdatePageSize: value => {
+        limit = value
+        getTableData()
+      },
+      itemCount: total,
+      showQuickJumper: true,
+      showSizePicker: true,
+      displayOrder: ['size-picker', 'pages', 'quick-jumper'],
+      pageSizes: [10, 20, 50, 100],
+      prefix: () => $t('common.table-total', { value: total }),
+      defaultPage: 1,
+      defaultPageSize: 10,
+    }"
+    pagination-behavior-on-filter="first"
+    remote
+  />
 </template>
 
 <style lang="scss" scoped>

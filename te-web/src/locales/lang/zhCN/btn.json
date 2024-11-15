@@ -16,5 +16,7 @@
   "refresh": "刷新",
   "fullscreen": "全屏",
   "exit-fullscreen": "退出全屏",
-  "reset-default": "恢复默认"
+  "reset-default": "恢复默认",
+  "fold": "收起",
+  "unfold": "展开"
 }
