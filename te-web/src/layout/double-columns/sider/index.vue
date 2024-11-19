@@ -18,7 +18,12 @@ const configStore = useConfigStore()
     @collapse="configStore.config.theme.siderCollapsed = true"
     @expand="configStore.config.theme.siderCollapsed = false"
   >
-    <ParentMenu class="h-full flex-shrink-0 justify-start bg-bg-body" />
+    <ParentMenu
+      class="h-full flex-shrink-0 justify-start"
+      :class="{
+        'bg-bg-body': !configStore.config.theme.menuInverted,
+      }"
+    />
     <ChildMenu class="flex-grow" />
   </n-layout-sider>
 </template>
