@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfigStore } from '@/store'
 import AnimatedRouterView from './components/animated-router-view.vue'
+import DoubleColumnsLayout from './double-columns/index.vue'
 import MixLayout from './mix/index.vue'
 import NormalLayout from './normal/index.vue'
 import TopLayout from './top/index.vue'
@@ -15,6 +16,8 @@ const layout = computed(() => {
       return TopLayout
     case 'mix':
       return MixLayout
+    case 'double-columns':
+      return DoubleColumnsLayout
     default:
       return NormalLayout
   }

@@ -125,6 +125,34 @@ function handleResetConfig() {
         <n-list-item>
           <div class="flex-c flex-wrap gap-3">
             <n-tooltip>
+              {{ $t('common.config.layout-double-columns') }}
+              <template #trigger>
+                <div
+                  class="layout"
+                  :class="{
+                    active: configStore.config.layout === 'double-columns',
+                  }"
+                  @click="configStore.config.layout = 'double-columns'"
+                >
+                  <div class="layout-double-columns" />
+                </div>
+              </template>
+            </n-tooltip>
+            <n-tooltip>
+              {{ $t('common.config.layout-mix') }}
+              <template #trigger>
+                <div
+                  class="layout"
+                  :class="{
+                    active: configStore.config.layout === 'mix',
+                  }"
+                  @click="configStore.config.layout = 'mix'"
+                >
+                  <div class="layout-mix" />
+                </div>
+              </template>
+            </n-tooltip>
+            <n-tooltip>
               {{ $t('common.config.layout-normal') }}
               <template #trigger>
                 <div
@@ -149,20 +177,6 @@ function handleResetConfig() {
                   @click="configStore.config.layout = 'top'"
                 >
                   <div class="layout-top" />
-                </div>
-              </template>
-            </n-tooltip>
-            <n-tooltip>
-              {{ $t('common.config.layout-mix') }}
-              <template #trigger>
-                <div
-                  class="layout"
-                  :class="{
-                    active: configStore.config.layout === 'mix',
-                  }"
-                  @click="configStore.config.layout = 'mix'"
-                >
-                  <div class="layout-mix" />
                 </div>
               </template>
             </n-tooltip>
@@ -299,6 +313,34 @@ function handleResetConfig() {
       left: 16px;
       width: 34px;
       height: 18px;
+      border: 1px dashed var(--n-primary-color-pressed);
+    }
+  }
+
+  // 双栏布局
+  .layout-double-columns {
+    position: absolute;
+    width: 8px;
+    height: 32px;
+    background-color: var(--n-primary-color);
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: 12px;
+      height: 32px;
+      background-color: var(--n-primary-color-hover);
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 30px;
+      height: 30px;
       border: 1px dashed var(--n-primary-color-pressed);
     }
   }

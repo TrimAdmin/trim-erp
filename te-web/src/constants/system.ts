@@ -24,4 +24,6 @@ export const layoutList = [
   'top',
   // 混合布局
   'mix',
+  // 双栏布局
+  'double-columns',
 ] as const

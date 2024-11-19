@@ -25,6 +25,7 @@
     "layout-normal": "侧边栏布局",
     "layout-top": "顶栏布局",
     "layout-mix": "混合布局",
+    "layout-double-columns": "双栏布局",
     "show-footer": "显示页脚",
     "show-logo": "显示Logo",
     "show-tags": "显示标签栏",

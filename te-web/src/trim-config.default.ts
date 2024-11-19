@@ -4,12 +4,12 @@ const defaultConfig: TrimConfig = {
   theme: {
     name: 'orange',
     darkMode: false,
-    siderWidth: 240,
+    siderWidth: 200,
     headerHeight: 48,
     siderCollapsed: false,
-    siderInverted: false,
+    menuInverted: false,
   },
-  layout: 'normal',
+  layout: 'double-columns',
   locale: 'zhCN',
   feature: {
     showFooter: true,
