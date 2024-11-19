@@ -15,6 +15,12 @@ const http = createAlova({
   beforeRequest: (method) => {
     method.config.headers['Content-Type'] = 'application/json;charset=UTF-8'
     method.config.headers.Token = useUserStoreHook().token
+    // 过滤null
+    Object.keys(method.config.params).forEach((key) => {
+      if (method.config.params[key] === null) {
+        method.config.params[key] = undefined
+      }
+    })
   },
   responded: {
     onSuccess: async (res) => {

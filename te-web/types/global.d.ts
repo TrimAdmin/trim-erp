@@ -39,6 +39,6 @@ declare global {
   }
 
   interface TableInstance {
-    getTableData: () => void
+    getTableData: (searchForm?: Record<string, any>) => void
   }
 }

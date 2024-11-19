@@ -10,3 +10,8 @@ export interface UserInfo {
   updateTime: string
   permissions: string[]
 }
+
+export type UserSearchForm = Partial<{
+  [key: string]: any
+  username: string
+}>

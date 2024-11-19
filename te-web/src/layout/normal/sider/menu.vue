@@ -17,6 +17,11 @@ function onMenuChange(name: keyof RouteNamedMap) {
 function renderLabel(menu: MenuOption) {
   return menu.i18n ? t(menu.i18n as string) : menu.label as string
 }
+
+const menuStore = useMenuStore()
+const route = useRoute()
+
+const defaultExpandedKeys = computed<string[]>(() => [menuStore.getParentMenu(route.name)?.key as string ?? ''])
 </script>
 
 <template>
@@ -25,11 +30,12 @@ function renderLabel(menu: MenuOption) {
     :options="permissionStore.menu"
     :indent="24"
     :collapsed="configStore.config.theme.siderCollapsed"
-    :value="$route.name"
+    :default-expanded-keys
+    :value="$route.meta.activeMenu as string ?? $route.name"
     :render-label="renderLabel"
     :collapsed-width="64"
     :inverted="configStore.config.theme.darkMode"
-    :watch-props="['defaultValue']"
+    :watch-props="['defaultExpandedKeys']"
     @update-value="onMenuChange"
   />
 </template>

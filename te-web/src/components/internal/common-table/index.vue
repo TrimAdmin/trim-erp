@@ -6,7 +6,6 @@ const props = withDefaults(defineProps<{
   columns: TableColumns
   api: string
   autoLoad?: boolean
-  searchForm?: Record<string, any>
   seq?: boolean
   checkbox?: boolean
   multiple?: boolean
@@ -57,16 +56,19 @@ const page = ref<number>(1)
 const limit = ref<number>(10)
 const total = ref<number>(0)
 
+const checkedRowKeys = defineModel<string[]>('checkedRowKeys')
+
 const loading = ref<boolean>(false)
 const tableData = ref<any[]>([])
 const tableRef = shallowRef<DataTableInst>()
 
-async function getTableData() {
+async function getTableData(searchForm?: Record<string, any>) {
   loading.value = true
   try {
+    checkedRowKeys.value = []
     const { data } = await http.Get<ApiResponsePage>(props.api, {
       params: {
-        ...props.searchForm,
+        ...(searchForm ?? {}),
         page: page.value,
         limit: limit.value,
       },
@@ -82,8 +84,6 @@ async function getTableData() {
 if (props.autoLoad) {
   getTableData()
 }
-
-const checkedRowKeys = defineModel<string[]>('checkedRowKeys')
 
 defineExpose({
   getTableData,

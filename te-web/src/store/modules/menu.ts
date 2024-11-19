@@ -1,24 +1,26 @@
 import { MenuOption } from 'naive-ui'
 
 const useMenuStore = defineStore('menu', () => {
+  // 侧边栏展示 经过过滤的菜单
   const menu = ref<MenuOption[]>([])
+  // 未过滤的菜单
+  const wholeMenu = ref<MenuOption[]>([])
   const permissionList = ref<string[]>([])
   // @ts-expect-error not infinity
-  const flatMenu = computed<MenuOption[]>(() => getFlatMenu(menu.value))
+  const flatMenu = computed<MenuOption[]>(() => getFlatMenu(wholeMenu.value))
 
-  function getFlatMenu(menuList: MenuOption[]): MenuOption[] {
+  function getFlatMenu(menuList: MenuOption[], parent?: MenuOption): MenuOption[] {
     return menuList.reduce((res, menu) => {
-      res.push(menu.children && menu.children.length
-        ? {
-            ...menu,
-            children: undefined,
-          }
-        : menu)
+      res.push({
+        ...menu,
+        children: undefined,
+        parent,
+      })
       if (menu.children && menu.children.length) {
-        res.push(...getFlatMenu(menu.children).map((item) => ({
-          ...item,
-          parent: menu,
-        })))
+        res.push(...getFlatMenu(menu.children, {
+          ...menu,
+          children: undefined,
+        }))
       }
       return res
     }, [] as MenuOption[])
@@ -31,6 +33,7 @@ const useMenuStore = defineStore('menu', () => {
 
     function getParentMenu(routeName: string) {
       const currentMenu = flatMenu.value.find((item) => item.key === routeName)
+
       if (currentMenu?.parent) {
         getParentMenu((currentMenu?.parent as MenuOption)?.key as string)
       }
@@ -42,10 +45,20 @@ const useMenuStore = defineStore('menu', () => {
     return res
   }
 
+  function getParentMenu(routeName: string) {
+    const currentMenu = flatMenu.value.find((item) => item.key === routeName)
+    if (currentMenu?.parent) {
+      return getParentMenu((currentMenu?.parent as MenuOption)?.key as string)
+    }
+    return currentMenu
+  }
+
   return {
     menu,
+    wholeMenu,
     permissionList,
     getBreadcrumbList,
+    getParentMenu,
   }
 })
 

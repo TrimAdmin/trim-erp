@@ -2,6 +2,8 @@
   "home": "首页",
   "system": {
     "title": "系统管理",
-    "user": "用户管理"
+    "user": "用户管理",
+    "create-user": "新增用户",
+    "update-user": "编辑用户"
   }
 }

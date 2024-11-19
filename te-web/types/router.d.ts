@@ -9,6 +9,7 @@ declare module 'vue-router' {
     hideMenu?: boolean
     hideTab?: boolean
     icon?: string
+    activeMenu?: string
     loaders?: UseDataLoader<boolean, unknown>[]
   }
 }

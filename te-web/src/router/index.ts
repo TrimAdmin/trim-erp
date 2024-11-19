@@ -13,6 +13,8 @@ routes.forEach((route) => {
 
 // @ts-expect-error not infinity
 useMenuStoreHook().menu = generateMenu(routes)
+// @ts-expect-error not infinity
+useMenuStoreHook().wholeMenu = generateMenu(routes, true)
 useMenuStoreHook().permissionList = generateFlatAuthList(routes)
 
 const router = createRouter({
