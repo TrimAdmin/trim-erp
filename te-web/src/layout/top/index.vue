@@ -20,7 +20,7 @@ const configStore = useConfigStore()
             'has-[.page-footer]:pb-16': !configStore.config.feature.showFooter,
           }"
         >
-          <Breadcrumb v-if="configStore.config.feature.showBreadcrumb" class="mx-4 my-2" />
+          <Breadcrumb class="mx-4 my-2" />
           <slot />
         </div>
         <div v-if="configStore.config.feature.showFooter" class="h-footer flex-c">

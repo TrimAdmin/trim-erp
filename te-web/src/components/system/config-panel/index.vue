@@ -54,7 +54,7 @@ async function handleCopyConfig() {
         <n-list-item>
           <div class="flex-bc">
             <span>{{ $t('common.config.dark-mode') }}</span>
-            <n-switch :value="configStore.config.theme.darkMode" @change="configStore.changeDarkMode">
+            <n-switch :value="configStore.config.theme.darkMode" @update:value="configStore.changeDarkMode">
               <template #checked-icon>
                 <i class="i-ri:moon-line" />
               </template>
@@ -73,13 +73,33 @@ async function handleCopyConfig() {
         <n-list-item>
           <div class="flex-bc">
             <span>{{ $t('common.config.sider-width') }}</span>
-            <n-input-number v-model:value="configStore.config.theme.siderWidth" :min="200" :max="360" />
+            <n-input-number
+              v-model:value="configStore.config.theme.siderWidth"
+              :precision="0"
+              :min="200"
+              :max="360"
+              @blur="() => {
+                if (!configStore.config.theme.siderWidth) {
+                  configStore.config.theme.siderWidth = 240
+                }
+              }"
+            />
           </div>
         </n-list-item>
         <n-list-item>
           <div class="flex-bc">
             <span>{{ $t('common.config.header-height') }}</span>
-            <n-input-number v-model:value="configStore.config.theme.headerHeight" :min="48" :max="96" />
+            <n-input-number
+              v-model:value="configStore.config.theme.headerHeight"
+              :precision="0"
+              :min="48"
+              :max="96"
+              @blur="() => {
+                if (!configStore.config.theme.headerHeight) {
+                  configStore.config.theme.headerHeight = 48
+                }
+              }"
+            />
           </div>
         </n-list-item>
       </n-list>
