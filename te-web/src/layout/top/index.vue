@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Footer from '../components/footer.vue'
 import Breadcrumb from '../components/header/breadcrumb.vue'
 import Tags from '../components/tags/index.vue'
 import Header from './header/index.vue'
@@ -23,9 +24,7 @@ const configStore = useConfigStore()
           <Breadcrumb class="mx-4 my-2" />
           <slot />
         </div>
-        <div v-if="configStore.config.feature.showFooter" class="h-footer flex-c">
-          Copyright &copy; 2024-present Trim ERP
-        </div>
+        <Footer />
       </n-layout-content>
       <n-back-top />
     </n-scrollbar>

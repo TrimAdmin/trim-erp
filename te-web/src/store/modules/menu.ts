@@ -6,8 +6,11 @@ const useMenuStore = defineStore('menu', () => {
   // 未过滤的菜单
   const wholeMenu = ref<MenuOption[]>([])
   const permissionList = ref<string[]>([])
+  // 拍扁的平铺菜单
   // @ts-expect-error not infinity
   const flatMenu = computed<MenuOption[]>(() => getFlatMenu(wholeMenu.value))
+  // 一级菜单
+  const parentMenu = computed<MenuOption[]>(() => flatMenu.value.filter((item) => !item.parent))
 
   function getFlatMenu(menuList: MenuOption[], parent?: MenuOption): MenuOption[] {
     return menuList.reduce((res, menu) => {
@@ -56,6 +59,7 @@ const useMenuStore = defineStore('menu', () => {
   return {
     menu,
     wholeMenu,
+    parentMenu,
     permissionList,
     getBreadcrumbList,
     getParentMenu,

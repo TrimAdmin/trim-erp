@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { useConfigStore, useMenuStore } from '@/store'
 import { MenuOption } from 'naive-ui'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
-defineProps<{
-  mode?: 'vertical' | 'horizontal'
-}>()
-
-const permissionStore = useMenuStore()
 const configStore = useConfigStore()
+const menuStore = useMenuStore()
 const router = useRouter()
+const route = useRoute()
+
 const { t } = useLocale()
 
 function onMenuChange(name: keyof RouteNamedMap) {
@@ -22,18 +19,22 @@ function renderLabel(menu: MenuOption) {
   return menu.i18n ? t(menu.i18n as string) : menu.label as string
 }
 
-const menuStore = useMenuStore()
-const route = useRoute()
+const parentRouteName = computed<string>(() => menuStore.getParentMenu(route.name)?.key as string ?? '')
+const menuList = computed(() => menuStore.menu.find((item) => item.key === parentRouteName.value)?.children)
 
 const defaultExpandedKeys = computed<string[]>(() => [menuStore.getParentMenu(route.name)?.key as string ?? ''])
+
+defineExpose({
+  menuList,
+})
 </script>
 
 <template>
   <n-menu
-    :mode
-    :options="permissionStore.menu"
+    mode="vertical"
+    :options="menuList"
     :indent="24"
-    :collapsed="configStore.config.layout !== 'top' && configStore.config.theme.siderCollapsed"
+    :collapsed="configStore.config.theme.siderCollapsed"
     :default-expanded-keys
     :value="$route.meta.activeMenu as string ?? $route.name"
     :render-label="renderLabel"

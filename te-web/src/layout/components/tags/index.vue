@@ -168,7 +168,7 @@ function handleSelect(key: string) {
   overflow-x: auto;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: var(--trim-tags-height);
   padding: 0 8px;
 
   @apply bg-bg-body;

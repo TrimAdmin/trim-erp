@@ -19,7 +19,7 @@ interface Theme {
   siderWidth: number
   headerHeight: number
   siderCollapsed: boolean
-  siderInverted: boolean
+  menuInverted: boolean
 }
 
 interface Feature {

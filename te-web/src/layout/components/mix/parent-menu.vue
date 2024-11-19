@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useConfigStore, useMenuStore } from '@/store'
 import { MenuOption } from 'naive-ui'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
@@ -7,8 +6,7 @@ defineProps<{
   mode?: 'vertical' | 'horizontal'
 }>()
 
-const permissionStore = useMenuStore()
-const configStore = useConfigStore()
+const menuStore = useMenuStore()
 const router = useRouter()
 const { t } = useLocale()
 
@@ -22,24 +20,22 @@ function renderLabel(menu: MenuOption) {
   return menu.i18n ? t(menu.i18n as string) : menu.label as string
 }
 
-const menuStore = useMenuStore()
 const route = useRoute()
 
-const defaultExpandedKeys = computed<string[]>(() => [menuStore.getParentMenu(route.name)?.key as string ?? ''])
+const defaultValue = computed<string>(() => menuStore.getParentMenu(route.name)?.key as string ?? '')
+const configStore = useConfigStore()
 </script>
 
 <template>
   <n-menu
     :mode
-    :options="permissionStore.menu"
+    :options="menuStore.parentMenu"
     :indent="24"
-    :collapsed="configStore.config.layout !== 'top' && configStore.config.theme.siderCollapsed"
-    :default-expanded-keys
-    :value="$route.meta.activeMenu as string ?? $route.name"
+    :value="defaultValue"
     :render-label="renderLabel"
     :collapsed-width="64"
-    :inverted="configStore.config.theme.menuInverted"
     :watch-props="['defaultExpandedKeys']"
+    :inverted="configStore.config.theme.menuInverted"
     @update-value="onMenuChange"
   />
 </template>

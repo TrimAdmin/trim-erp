@@ -75,8 +75,8 @@ function handleResetConfig() {
         </n-list-item>
         <n-list-item v-if="configStore.config.layout !== 'top'" v-motion-slide-left>
           <div class="flex-bc">
-            <span>{{ $t('common.config.sider-inverted') }}</span>
-            <n-switch v-model:value="configStore.config.theme.siderInverted" :disabled="configStore.config.theme.darkMode" />
+            <span>{{ $t('common.config.menu-inverted') }}</span>
+            <n-switch v-model:value="configStore.config.theme.menuInverted" :disabled="configStore.config.theme.darkMode" />
           </div>
         </n-list-item>
         <n-list-item>
@@ -149,6 +149,20 @@ function handleResetConfig() {
                   @click="configStore.config.layout = 'top'"
                 >
                   <div class="layout-top" />
+                </div>
+              </template>
+            </n-tooltip>
+            <n-tooltip>
+              {{ $t('common.config.layout-mix') }}
+              <template #trigger>
+                <div
+                  class="layout"
+                  :class="{
+                    active: configStore.config.layout === 'mix',
+                  }"
+                  @click="configStore.config.layout = 'mix'"
+                >
+                  <div class="layout-mix" />
                 </div>
               </template>
             </n-tooltip>
@@ -226,6 +240,7 @@ function handleResetConfig() {
   border-radius: var(--n-border-radius);
   transition: all 250ms var(--n-cubic-bezier-ease-in-out);
 
+  // 侧边栏布局
   .layout-normal {
     position: absolute;
     width: 16px;
@@ -235,23 +250,15 @@ function handleResetConfig() {
     &::before {
       content: ' ';
       position: absolute;
-      left: 16px;
-      width: 36px;
-      height: 8px;
-      background-color: var(--n-primary-color-hover);
-    }
-
-    &::after {
-      content: ' ';
-      position: absolute;
-      top: 8px;
+      top: 0;
       left: 16px;
       width: 34px;
-      height: 22px;
+      height: 30px;
       border: 1px dashed var(--n-primary-color-pressed);
     }
   }
 
+  // 顶栏布局
   .layout-top {
     display: block;
     height: 12px;
@@ -263,6 +270,34 @@ function handleResetConfig() {
       top: 20px;
       display: block;
       width: 50px;
+      height: 18px;
+      border: 1px dashed var(--n-primary-color-pressed);
+    }
+  }
+
+  // 混合布局
+  .layout-mix {
+    position: absolute;
+    width: 52px;
+    height: 12px;
+    background-color: var(--n-primary-color);
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 16px;
+      height: 20px;
+      background-color: var(--n-primary-color-hover);
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      width: 34px;
       height: 18px;
       border: 1px dashed var(--n-primary-color-pressed);
     }

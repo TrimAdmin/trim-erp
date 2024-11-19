@@ -9,14 +9,15 @@ const useConfigStore = defineStore('config', () => {
   watchPostEffect(() => {
     document.documentElement.style.setProperty('--trim-header-height', `${config.value.theme.headerHeight}px`)
     document.documentElement.style.setProperty('--trim-header-height-with-tags', `${config.value.theme.headerHeight + (config.value.feature.showTags ? 40 : 0)}px`)
+    document.documentElement.style.setProperty('--trim-tags-height', '40px')
     document.documentElement.style.setProperty('--trim-sider-width', `${config.value.theme.siderCollapsed ? 64 : config.value.theme.siderWidth}px`)
     document.documentElement.style.setProperty('--trim-footer-height', `${config.value.feature.showFooter ? 48 : 0}px`)
     // 侧边栏反转跟随布局和暗色模式
     if (config.value.layout === 'top') {
-      config.value.theme.siderInverted = false
+      config.value.theme.menuInverted = false
     }
     else {
-      config.value.theme.siderInverted = config.value.theme.darkMode
+      config.value.theme.menuInverted = config.value.theme.darkMode
     }
   })
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Footer from '../components/footer.vue'
 import Tags from '../components/tags/index.vue'
 import Header from './header/index.vue'
 import Sider from './sider/index.vue'
@@ -11,7 +12,7 @@ const configStore = useConfigStore()
     <Sider />
     <n-layout content-class="flex flex-col relative">
       <n-scrollbar>
-        <div data-calc-fixed class="shadow-md dark:shadow-dark">
+        <div data-calc-fixed="true" class="shadow-md dark:shadow-dark">
           <Header />
           <Tags v-if="configStore.config.feature.showTags" />
         </div>
@@ -24,9 +25,7 @@ const configStore = useConfigStore()
           >
             <slot />
           </div>
-          <div v-if="configStore.config.feature.showFooter" class="h-footer flex-c">
-            Copyright &copy; 2024-present Trim ERP
-          </div>
+          <Footer />
         </n-layout-content>
         <n-back-top />
       </n-scrollbar>
