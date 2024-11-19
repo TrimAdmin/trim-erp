@@ -15,7 +15,6 @@ const configStore = useConfigStore()
           <Header />
           <Tags v-if="configStore.config.feature.showTags" />
         </div>
-        <ConfigPanel />
         <n-layout-content class="pt-header-tags">
           <div
             class="min-h-body relative flex flex-col"

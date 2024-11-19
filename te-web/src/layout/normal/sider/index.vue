@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useConfigStore } from '@/store'
-import Menu from './menu.vue'
+import Menu from '../../components/menu.vue'
 import Logo from '/logo.svg'
 
 const configStore = useConfigStore()
@@ -25,7 +25,7 @@ const { VITE_DOCUMENT_TITLE } = import.meta.env
         {{ VITE_DOCUMENT_TITLE }}
       </span>
     </div>
-    <Menu />
+    <Menu mode="vertical" />
   </n-layout-sider>
 </template>
 

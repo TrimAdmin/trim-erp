@@ -15,6 +15,7 @@ const defaultConfig: TrimConfig = {
     showLogo: true,
     showTags: true,
     cacheTabs: true,
+    showBreadcrumb: true,
   },
 }
 

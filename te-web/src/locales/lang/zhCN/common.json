@@ -18,11 +18,15 @@
     "theme": "主题",
     "feature": "功能",
     "dark-mode": "暗色模式",
+    "sider-width": "侧边栏宽度",
+    "header-height": "顶栏高度",
     "layout": "布局",
     "layout-normal": "侧边栏布局",
+    "layout-top": "顶栏布局",
     "show-footer": "显示页脚",
     "show-logo": "显示Logo",
     "show-tags": "显示标签栏",
+    "show-breadcrumb": "显示面包屑",
     "cache-tabs": "标签栏缓存"
   },
   "theme": {

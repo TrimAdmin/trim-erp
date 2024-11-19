@@ -70,13 +70,25 @@ async function handleCopyConfig() {
             <n-select :value="configStore.config.theme.name" :options="themeList as any" @change="configStore.changeTheme" />
           </div>
         </n-list-item>
+        <n-list-item>
+          <div class="flex-bc">
+            <span>{{ $t('common.config.sider-width') }}</span>
+            <n-input-number v-model:value="configStore.config.theme.siderWidth" :min="200" :max="360" />
+          </div>
+        </n-list-item>
+        <n-list-item>
+          <div class="flex-bc">
+            <span>{{ $t('common.config.header-height') }}</span>
+            <n-input-number v-model:value="configStore.config.theme.headerHeight" :min="48" :max="96" />
+          </div>
+        </n-list-item>
       </n-list>
       <n-divider>
         {{ $t('common.config.layout') }}
       </n-divider>
       <n-list :show-divider="false">
         <n-list-item>
-          <div class="flex-c">
+          <div class="flex-c flex-wrap gap-3">
             <n-tooltip>
               {{ $t('common.config.layout-normal') }}
               <template #trigger>
@@ -85,8 +97,23 @@ async function handleCopyConfig() {
                   :class="{
                     active: configStore.config.layout === 'normal',
                   }"
+                  @click="configStore.config.layout = 'normal'"
                 >
                   <div class="layout-normal" />
+                </div>
+              </template>
+            </n-tooltip>
+            <n-tooltip>
+              {{ $t('common.config.layout-top') }}
+              <template #trigger>
+                <div
+                  class="layout"
+                  :class="{
+                    active: configStore.config.layout === 'top',
+                  }"
+                  @click="configStore.config.layout = 'top'"
+                >
+                  <div class="layout-top" />
                 </div>
               </template>
             </n-tooltip>
@@ -117,6 +144,12 @@ async function handleCopyConfig() {
         </n-list-item>
         <n-list-item>
           <div class="flex-bc">
+            <span>{{ $t('common.config.show-breadcrumb') }}</span>
+            <n-switch v-model:value="configStore.config.feature.showBreadcrumb" />
+          </div>
+        </n-list-item>
+        <n-list-item>
+          <div class="flex-bc">
             <span>{{ $t('common.config.cache-tabs') }}</span>
             <n-switch v-model:value="configStore.config.feature.cacheTabs" />
           </div>
@@ -136,7 +169,8 @@ async function handleCopyConfig() {
   margin: 12px 0;
 }
 
-.n-select {
+.n-select,
+.n-input-number {
   width: 160px;
 }
 
@@ -169,8 +203,24 @@ async function handleCopyConfig() {
       position: absolute;
       top: 8px;
       left: 16px;
-      width: 36px;
-      height: 24px;
+      width: 34px;
+      height: 22px;
+      border: 1px dashed var(--n-primary-color-pressed);
+    }
+  }
+
+  .layout-top {
+    display: block;
+    height: 12px;
+    background-color: var(--n-primary-color);
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 20px;
+      display: block;
+      width: 50px;
+      height: 18px;
       border: 1px dashed var(--n-primary-color-pressed);
     }
   }

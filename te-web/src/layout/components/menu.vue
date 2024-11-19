@@ -3,6 +3,10 @@ import { useConfigStore, useMenuStore } from '@/store'
 import { MenuOption } from 'naive-ui'
 import { RouteNamedMap } from 'vue-router/auto-routes'
 
+defineProps<{
+  mode?: 'vertical' | 'horizontal'
+}>()
+
 const permissionStore = useMenuStore()
 const configStore = useConfigStore()
 const router = useRouter()
@@ -26,7 +30,7 @@ const defaultExpandedKeys = computed<string[]>(() => [menuStore.getParentMenu(ro
 
 <template>
   <n-menu
-    accordion
+    :mode
     :options="permissionStore.menu"
     :indent="24"
     :collapsed="configStore.config.theme.siderCollapsed"

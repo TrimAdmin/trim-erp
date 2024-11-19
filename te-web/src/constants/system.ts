@@ -17,4 +17,9 @@ export const themeList = [
 
 export const localeList = ['zhCN', 'zhTW', 'enUS'] as const
 
-export const layoutList = ['normal'] as const
+export const layoutList = [
+  // 普通布局
+  'normal',
+  // 顶栏布局
+  'top',
+] as const

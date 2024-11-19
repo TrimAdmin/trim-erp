@@ -26,4 +26,5 @@ interface Feature {
   showLogo: boolean
   showTags: boolean
   cacheTabs: boolean
+  showBreadcrumb: boolean
 }

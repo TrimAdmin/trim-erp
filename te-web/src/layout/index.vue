@@ -2,6 +2,7 @@
 import { useConfigStore } from '@/store'
 import AnimatedRouterView from './components/animated-router-view.vue'
 import NormalLayout from './normal/index.vue'
+import TopLayout from './top/index.vue'
 
 const configStore = useConfigStore()
 
@@ -9,6 +10,8 @@ const layout = computed(() => {
   switch (configStore.config.layout) {
     case 'normal':
       return NormalLayout
+    case 'top':
+      return TopLayout
     default:
       return NormalLayout
   }
@@ -21,6 +24,7 @@ const layout = computed(() => {
       <RouterView v-if="$route.meta?.noLayout" />
       <AnimatedRouterView v-else />
     </Component>
+    <ConfigPanel />
   </div>
 </template>
 

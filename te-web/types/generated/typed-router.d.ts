@@ -24,7 +24,6 @@ declare module 'vue-router/auto-routes' {
     'System': RouteRecordInfo<'System', '/system', Record<never, never>, Record<never, never>>,
     'SystemUser': RouteRecordInfo<'SystemUser', '/system/user', Record<never, never>, Record<never, never>>,
     'SystemUserAdd': RouteRecordInfo<'SystemUserAdd', '/system/user/add', Record<never, never>, Record<never, never>>,
-    '/system/user/components/form': RouteRecordInfo<'/system/user/components/form', '/system/user/components/form', Record<never, never>, Record<never, never>>,
     'SystemUserEdit': RouteRecordInfo<'SystemUserEdit', '/system/user/edit', Record<never, never>, Record<never, never>>,
   }
 }
