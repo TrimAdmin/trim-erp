@@ -38,7 +38,7 @@ const defaultExpandedKeys = computed<string[]>(() => [menuStore.getParentMenu(ro
     :value="$route.meta.activeMenu as string ?? $route.name"
     :render-label="renderLabel"
     :collapsed-width="64"
-    :inverted="configStore.config.theme.darkMode"
+    :inverted="configStore.config.theme.siderInverted"
     :watch-props="['defaultExpandedKeys']"
     @update-value="onMenuChange"
   />

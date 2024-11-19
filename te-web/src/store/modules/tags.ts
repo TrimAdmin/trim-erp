@@ -41,6 +41,61 @@ const useTagsStore = defineStore('tags', () => {
     })
   }
 
+  // 关闭左侧标签页
+  function closeLeftTags(name: string) {
+    // 当前路由在标签页中的下标
+    const currentTagIndex = tagsList.value.findIndex(
+      (item) => item.name === router.currentRoute.value.name,
+    )
+    // 触发的标签页下标
+    const tagIndex = tagsList.value.findIndex((item) => item.name === name)
+    // 移除标签页列表中元素
+    tagsList.value.splice(0, tagIndex)
+    // 若触发标签页下标大于当前路由下标则跳转到首个标签页（关闭后首个标签页即为触发标签页）
+    if (tagIndex > currentTagIndex) {
+      router.push({
+        name: tagsList.value[0].name as keyof RouteNamedMap,
+      })
+    }
+  }
+
+  // 关闭右侧标签页
+  function closeRightTags(name: string) {
+    // 当前路由在标签页中的下标
+    const currentTagIndex = tagsList.value.findIndex(
+      (item) => item.name === router.currentRoute.value.name,
+    )
+    // 触发的标签页下标
+    const tagIndex = tagsList.value.findIndex((item) => item.name === name)
+    // 移除标签页列表中元素
+    tagsList.value.splice(tagIndex + 1, tagsList.value.length - tagIndex - 1)
+    // 若触发标签页下标小于当前路由下标则跳转到触发标签页
+    if (tagIndex < currentTagIndex) {
+      router.push({
+        name: tagsList.value[tagIndex].name as keyof RouteNamedMap,
+      })
+    }
+  }
+
+  // 关闭其他标签页
+  function closeOtherTags(name: string) {
+    // 触发的标签页下标
+    let tagIndex = tagsList.value.findIndex((item) => item.name === name)
+    // 移除标签页列表中左侧的元素
+    tagsList.value.splice(0, tagIndex)
+    // 重新获取下标
+    tagIndex = tagsList.value.findIndex((item) => item.name === name)
+    // 移除标签页列表中右侧的元素
+    tagsList.value.splice(
+      tagIndex + 1,
+      tagsList.value.length - tagIndex - 1,
+    )
+    // 关闭后仅剩该标签页
+    router.push({
+      name: tagsList.value[0].name as keyof RouteNamedMap,
+    })
+  }
+
   function clearTags() {
     tagsList.value = []
   }
@@ -50,6 +105,9 @@ const useTagsStore = defineStore('tags', () => {
     tagsList,
     addTag,
     closeTag,
+    closeLeftTags,
+    closeRightTags,
+    closeOtherTags,
     clearTags,
   }
 })

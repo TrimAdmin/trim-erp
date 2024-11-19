@@ -42,7 +42,6 @@ function handleReset() {
       <n-button
         type="primary"
         ghost
-        class="mr-3"
         @click="handleSearch"
       >
         <template #icon>

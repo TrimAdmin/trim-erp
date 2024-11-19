@@ -13,10 +13,12 @@ const emits = defineEmits<{
 </script>
 
 <template>
-  <div class="trim-tabs__card" :class="[{ 'trim-tabs__card-active': active }]">
-    <div class="flex-c">
+  <div class="trim-tabs__card" :class="[{ 'trim-tabs__card-active': active }]" :title="tab.meta?.titleI18n ? $t(tab.meta?.titleI18n) : tab.meta?.title">
+    <div class="flex-c overflow-hidden">
       <span :class="tab.meta?.icon" class="mr-1" />
-      {{ tab.meta?.titleI18n ? $t(tab.meta?.titleI18n) : tab.meta?.title }}
+      <span class="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
+        {{ tab.meta?.titleI18n ? $t(tab.meta?.titleI18n) : tab.meta?.title }}
+      </span>
     </div>
     <span v-if="closable" class="close" @click.stop="emits('close')">
       <i class="i-ep:close" />

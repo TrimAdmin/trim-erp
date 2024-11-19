@@ -18,8 +18,10 @@ export const themeList = [
 export const localeList = ['zhCN', 'zhTW', 'enUS'] as const
 
 export const layoutList = [
-  // 普通布局
+  // 侧边栏布局
   'normal',
   // 顶栏布局
   'top',
+  // 混合布局
+  'mix',
 ] as const

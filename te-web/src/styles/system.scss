@@ -81,3 +81,13 @@
 .search-panel + .table-bar {
   margin-top: 16px;
 }
+
+.n-button + .n-button {
+  margin-left: 12px;
+}
+
+.n-popconfirm {
+  .n-button + .n-button {
+    margin-left: 0;
+  }
+}

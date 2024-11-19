@@ -211,12 +211,12 @@ const tableSizeOptions = computed<DropdownOption[]>(() => [
           <n-popconfirm @positive-click="handleReset">
             {{ $t('toast.reset-default') }}
             <template #trigger>
-              <n-button class="mr-2">
+              <n-button>
                 {{ $t('btn.reset-default') }}
               </n-button>
             </template>
           </n-popconfirm>
-          <n-button class="mr-2" @click="setShowCustom(false)">
+          <n-button @click="setShowCustom(false)">
             {{ $t('btn.cancel') }}
           </n-button>
           <n-button type="primary" @click="handleChangeColumnConfig">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfigStore } from '@/store'
 import AnimatedRouterView from './components/animated-router-view.vue'
+import MixLayout from './mix/index.vue'
 import NormalLayout from './normal/index.vue'
 import TopLayout from './top/index.vue'
 
@@ -12,6 +13,8 @@ const layout = computed(() => {
       return NormalLayout
     case 'top':
       return TopLayout
+    case 'mix':
+      return MixLayout
     default:
       return NormalLayout
   }

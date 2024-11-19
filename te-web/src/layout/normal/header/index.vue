@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import OpenSettings from '@/layout/components/header/open-settings.vue'
+import Refresh from '@/layout/components/header/refresh.vue'
 import Breadcrumb from '../../components/header/breadcrumb.vue'
 import UserInfo from '../../components/header/user-info.vue'
 </script>
@@ -13,6 +14,7 @@ import UserInfo from '../../components/header/user-info.vue'
       <Breadcrumb />
     </div>
     <div class="flex items-center gap-3">
+      <Refresh />
       <ToggleDark />
       <SwitchLocale />
       <OpenSettings />

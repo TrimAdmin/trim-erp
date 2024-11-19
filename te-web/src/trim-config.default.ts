@@ -7,6 +7,7 @@ const defaultConfig: TrimConfig = {
     siderWidth: 240,
     headerHeight: 48,
     siderCollapsed: false,
+    siderInverted: false,
   },
   layout: 'normal',
   locale: 'zhCN',
@@ -16,6 +17,8 @@ const defaultConfig: TrimConfig = {
     showTags: true,
     cacheTabs: true,
     showBreadcrumb: true,
+    dynamicTitle: true,
+    progressBar: true,
   },
 }
 

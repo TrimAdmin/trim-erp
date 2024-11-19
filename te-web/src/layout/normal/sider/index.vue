@@ -1,11 +1,9 @@
 <script setup lang="ts">
+import Logo from '@/layout/components/header/logo.vue'
 import { useConfigStore } from '@/store'
 import Menu from '../../components/menu.vue'
-import Logo from '/logo.svg'
 
 const configStore = useConfigStore()
-
-const { VITE_DOCUMENT_TITLE } = import.meta.env
 </script>
 
 <template>
@@ -16,15 +14,11 @@ const { VITE_DOCUMENT_TITLE } = import.meta.env
     collapse-mode="width"
     show-trigger
     class="relative z-1500 border-r-1 border-r-border border-r-solid"
+    :inverted="configStore.config.theme.siderInverted"
     @collapse="configStore.config.theme.siderCollapsed = true"
     @expand="configStore.config.theme.siderCollapsed = false"
   >
-    <div v-if="configStore.config.feature.showLogo" class="h-header flex-c overflow-hidden text-ellipsis whitespace-nowrap text-xl">
-      <img :src="Logo" alt="logo" class="h-8 w-8">
-      <span v-if="!configStore.config.theme.siderCollapsed" class="ml-2">
-        {{ VITE_DOCUMENT_TITLE }}
-      </span>
-    </div>
+    <Logo />
     <Menu mode="vertical" />
   </n-layout-sider>
 </template>

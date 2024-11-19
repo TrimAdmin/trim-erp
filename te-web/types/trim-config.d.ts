@@ -19,6 +19,7 @@ interface Theme {
   siderWidth: number
   headerHeight: number
   siderCollapsed: boolean
+  siderInverted: boolean
 }
 
 interface Feature {
@@ -27,4 +28,6 @@ interface Feature {
   showTags: boolean
   cacheTabs: boolean
   showBreadcrumb: boolean
+  dynamicTitle: boolean
+  progressBar: boolean
 }

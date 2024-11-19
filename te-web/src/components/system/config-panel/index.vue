@@ -26,6 +26,7 @@ const {
   source: configStr,
 })
 
+// 复制配置
 async function handleCopyConfig() {
   if (!isSupported.value) {
     message.value.warning(t('toast.not-support-env'))
@@ -35,6 +36,14 @@ async function handleCopyConfig() {
   if (copied.value) {
     message.value.success(t('toast.config-copy-success'))
   }
+}
+
+// 重置配置
+function handleResetConfig() {
+  localStorage.removeItem('trim__config')
+  nextTick(() => {
+    window.location.reload()
+  })
 }
 </script>
 
@@ -64,10 +73,16 @@ async function handleCopyConfig() {
             </n-switch>
           </div>
         </n-list-item>
+        <n-list-item v-if="configStore.config.layout !== 'top'" v-motion-slide-left>
+          <div class="flex-bc">
+            <span>{{ $t('common.config.sider-inverted') }}</span>
+            <n-switch v-model:value="configStore.config.theme.siderInverted" :disabled="configStore.config.theme.darkMode" />
+          </div>
+        </n-list-item>
         <n-list-item>
           <div class="flex-bc">
             <span>{{ $t('common.config.theme') }}</span>
-            <n-select :value="configStore.config.theme.name" :options="themeList as any" @change="configStore.changeTheme" />
+            <n-select :value="configStore.config.theme.name" :options="themeList as any" @update:value="configStore.changeTheme" />
           </div>
         </n-list-item>
         <n-list-item>
@@ -176,6 +191,14 @@ async function handleCopyConfig() {
         </n-list-item>
       </n-list>
       <template #footer>
+        <n-popconfirm @positive-click="handleResetConfig">
+          {{ $t('toast.reset-default') }}
+          <template #trigger>
+            <n-button secondary>
+              {{ $t('btn.reset-config') }}
+            </n-button>
+          </template>
+        </n-popconfirm>
         <n-button secondary type="primary" @click="handleCopyConfig">
           {{ $t('btn.copy-config') }}
         </n-button>

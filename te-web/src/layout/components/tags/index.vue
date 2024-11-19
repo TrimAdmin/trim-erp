@@ -114,6 +114,7 @@ function handleSelect(key: string) {
   // console.log(key)
   switch (key) {
     case 'refresh':
+      mitter.emit('page-refresh')
       break
     // 关闭标签
     case 'close':
@@ -122,11 +123,14 @@ function handleSelect(key: string) {
     case 'maximize':
       break
     case 'close-other':
+      tagsStore.closeOtherTags(activeTab.value)
       break
     // 关闭左侧标签页
     case 'close-left':
+      tagsStore.closeLeftTags(activeTab.value)
       break
     case 'close-right':
+      tagsStore.closeRightTags(activeTab.value)
       break
   }
   showMenu.value = false

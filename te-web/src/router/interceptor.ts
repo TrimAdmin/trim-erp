@@ -3,9 +3,13 @@ import { Router, RouteRecordRaw } from 'vue-router'
 export function routerInterceptor(router: Router) {
   router.beforeEach((to, from, next) => {
     const userStore = useUserStoreHook()
-    loadingBar.value.start()
-
-    useTitle(to.meta?.title ? `${to.meta?.title} - ${import.meta.env.VITE_DOCUMENT_TITLE}` : `${import.meta.env.VITE_DOCUMENT_TITLE}`)
+    const configStore = useConfigStoreHook()
+    if (configStore.config.feature.progressBar) {
+      loadingBar.value.start()
+    }
+    if (configStore.config.feature.dynamicTitle) {
+      useTitle(to.meta?.title ? `${to.meta?.title} - ${import.meta.env.VITE_DOCUMENT_TITLE}` : `${import.meta.env.VITE_DOCUMENT_TITLE}`)
+    }
     // 拦截非公共路由
     if (!to.meta.public && !userStore.isLogged) {
       next({

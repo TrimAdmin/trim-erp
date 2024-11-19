@@ -2,13 +2,27 @@
 import { useTagsStore } from '@/store'
 
 const tagsStore = useTagsStore()
+const refresh = ref<boolean>()
+
+onMounted(() => {
+  mitter.on('page-refresh', () => {
+    refresh.value = true
+    nextTick(() => {
+      refresh.value = false
+    })
+  })
+})
+
+onBeforeUnmount(() => {
+  mitter.off('page-refresh')
+})
 </script>
 
 <template>
   <RouterView v-slot="{ Component, route }">
     <Transition name="fade-left" appear mode="out-in">
       <KeepAlive :include="tagsStore.keepAliveList">
-        <component :is="Component" :key="route.name" />
+        <component :is="Component" v-if="!refresh" :key="route.name" />
       </KeepAlive>
     </Transition>
   </RouterView>
